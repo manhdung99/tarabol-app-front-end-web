@@ -1,10 +1,14 @@
-import "./App.css";
-
+import HomePage from "./components/homepage";
+import Library from "./components/library";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-      <p className="text-3xl">Tarabol App</p>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" exact element={<HomePage />} />
+        <Route path="/library" exact element={<Library />} />
+      </Routes>
+    </Router>
   );
 }
 
