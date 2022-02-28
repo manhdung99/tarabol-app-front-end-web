@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 export default function NavBar() {
   const navbarItems = [
-    { id: 1, name: "Home Page", link: "/" },
-    { id: 2, name: "Your Library", link: "/library" },
+    { id: 1, name: "Home Page", link: "/tarabol-app-front-end-web" },
+    { id: 2, name: "Your Library", link: "/tarabol-app-front-end-web/library" },
     { id: 3, name: "Communication", link: "/" },
   ];
 
