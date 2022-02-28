@@ -7,7 +7,7 @@ function User(props) {
   const [showUserItem, setShowUserItem] = useState(false);
 
   const handleLogout = () => {
-    navigate("/tarabol-app-front-end-web/login");
+    navigate("/tarabol-app-front-end-web/");
   };
 
   return (
