@@ -2,27 +2,26 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-export default function Login() {
+import { connect } from "react-redux";
+const Login = ({ users }) => {
   const navigate = useNavigate();
   const [error, setError] = useState(false);
   const [account, setAccount] = useState({
     username: "",
     password: "",
   });
-  const userAccount = {
-    username: "DungNM25@gmail.com",
-    password: "123456",
-  };
   const handleLogin = (e) => {
-    if (account.password !== "" && account.username !== "") {
-      if (
-        account.username === userAccount.username &&
-        account.password === userAccount.password
-      ) {
-        navigate("/tarabol-app-front-end-web/homepage");
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].username === account.username) {
+        if (users[i].password === account.password) {
+          navigate("/tarabol-app-front-end-web/homepage");
+        } else {
+          setError(true);
+          e.preventDefault();
+        }
       } else {
-        e.preventDefault();
         setError(true);
+        e.preventDefault();
       }
     }
   };
@@ -230,4 +229,12 @@ export default function Login() {
       </div>
     </div>
   );
-}
+};
+
+const mapStateToProps = (state) => {
+  return {
+    users: state.userReducer.users,
+  };
+};
+
+export default connect(mapStateToProps, null)(Login);

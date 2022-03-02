@@ -3,6 +3,7 @@ import UserPage from "./components/userpage";
 import Library from "./components/library";
 import Login from "./components/login";
 import HomePage from "./components/homepage";
+import Signup from "./components/signup";
 function App() {
   return (
     <Router>
@@ -26,6 +27,11 @@ function App() {
           path="/tarabol-app-front-end-web/login"
           exact
           element={<Login />}
+        />
+        <Route
+          path="/tarabol-app-front-end-web/signup"
+          exact
+          element={<Signup />}
         />
       </Routes>
     </Router>
