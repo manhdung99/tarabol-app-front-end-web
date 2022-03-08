@@ -9,16 +9,22 @@ const initState = {
       password: "1234567",
     },
   ],
+  isLogin: false,
 };
 
 const userReducer = (state = initState, action) => {
   switch (action.type) {
     case "REGISTER_USER":
-      console.log(action.payload);
       let newData = [...state.users, action.payload];
       return {
         ...state,
         users: [...newData],
+      };
+    case "SET_LOGIN_STATUS":
+      let loginStatus = action.payload;
+      return {
+        ...state,
+        isLogin: loginStatus,
       };
     default:
       return state;

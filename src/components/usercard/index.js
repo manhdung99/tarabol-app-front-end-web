@@ -14,25 +14,18 @@ function Card(props) {
   return (
     <div
       ref={ref}
-      className=" w-[307px] relative shadow-md shadow-[#00000040] rounded-[12px] pt-[25%] mt-[1rem] hover:scale-[1.05]"
+      className=" w-[256px] relative shadow-md shadow-[#00000040] rounded-[12px] pt-[25%] mb-[2rem] hover:scale-[1.05]"
     >
       <div className="bg-[#fff] px-[8px] border-[1px] border-black rounded-b-[8px] border-t-0">
-        <div className="flex items-center justify-between pb-[36px]">
-          <div>
+        <div className="flex justify-between">
+          <div className="w-[75%]">
             <div>
-              <p className="font-bold text-[15px]">{props.title}</p>
+              <p className="font-bold text-[15px]">Introduction to CS</p>
+              <p className="text-[12px] text-[#9E9E9E]">
+                Lorem Ipsum is simply dummy text of the printing
+              </p>
             </div>
-            <div className="flex gap-[16px] font-semibold">
-              <p className="text-[7px]">Beginner</p>
-              <p className="text-[7px]">120 Chapters</p>
-              <p className="text-[7px]">1000+ Cards </p>
-            </div>
-          </div>
-          <div>
-            {props.price && (
-              <p className="text-right font-bold mb-1">{props.price}</p>
-            )}
-            <div className="flex">
+            <div className="flex pt-1">
               {yellowStars.map((item) => (
                 <svg
                   key={item}
@@ -69,18 +62,46 @@ function Card(props) {
               ))}
             </div>
             <div>
-              <p className="text-[8px] text-center font-semibold">4.6 (10+)</p>
+              <p className="text-[8px] text-left ml-[2px] font-semibold pt-1">
+                4.6 (10+)
+              </p>
             </div>
+            <span className="flex text-[#9E9E9E] text-[10px] pt-1">
+              Last learn: <p>22 Mar 2022</p>
+            </span>
           </div>
-        </div>
-        <div className="flex items-center justify-between pb-[12px]">
-          <div className="text-[10px]">
-            <p className="font-semibold">{props.authorName}</p>
-          </div>
-          <div>
-            <button className="text-[10px] font-semibold border-black border-[1px] px-[35px] py-[8px] rounded-[2px]">
-              Learn Now
-            </button>
+          <div className="w-[30%]">
+            <svg
+              viewBox="0 0 36 36"
+              className="block my-[10px] max-w-[100%] max-h-[100px]"
+            >
+              <path
+                stroke="#D3E1F3"
+                fill="none"
+                strokeWidth="3.5"
+                d="M18 2.0845 
+            a 15.9155 15.9155 0 0 1 0 31.831
+            a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <path
+                strokeDasharray="75, 100"
+                stroke="#2F80ED"
+                fill="none"
+                strokeWidth="3"
+                d="M18 2.0845 
+            a 15.9155 15.9155 0 0 1 0 31.831
+            a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <text
+                fill="#333"
+                fontSize="8px"
+                textAnchor="middle"
+                x="18"
+                y="20.35"
+              >
+                75 %
+              </text>
+            </svg>
           </div>
         </div>
       </div>
@@ -91,12 +112,8 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   descriptionImg: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
     .isRequired,
-  // authorAvatar: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
   //   .isRequired,
   // description: PropTypes.string.isRequired,
-  authorName: PropTypes.string,
-  // typeButton: PropTypes.string,
-  price: PropTypes.string,
 };
 
 export default Card;

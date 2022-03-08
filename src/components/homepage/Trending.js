@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import Card from "../card";
 import Avatar from "../image/image.png";
 import ImgDescription from "../image/study-background.png";
-export default function TrendingSection() {
-  const recentlyItems = [
+export default function Trending() {
+  const introduceItems = [
     {
       title: "Card Title",
       authorAvatar: Avatar,
@@ -28,18 +28,18 @@ export default function TrendingSection() {
     },
   ];
   return (
-    <div className="max-w-7xl mx-auto py-[2rem]">
-      <p className="text-[28px] font-bold mb-[1rem]"> Trending</p>
-      <div className="grid grid-cols-3 ">
-        {recentlyItems.map((item, index) => (
-          <Link key={index} to="/">
+    <div className="flex flex-col bg-[#fff] pt-[3rem] ">
+      <p className="font-[600] text-xl">Trending</p>
+      <div className="flex justify-between ">
+        {introduceItems.map((item, index) => (
+          <Link to="/" key={index}>
             <Card
+              width="307px"
               title={item.title}
               authorAvatar={item.authorAvatar}
               authorName={item.authorName}
               description={item.description}
               descriptionImg={item.descriptionImg}
-              typeButton="Add"
             />
           </Link>
         ))}

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
-const Login = ({ users }) => {
+const Login = ({ users, setLoginStatus }) => {
   const navigate = useNavigate();
   const [error, setError] = useState(false);
   const [account, setAccount] = useState({
@@ -14,6 +14,7 @@ const Login = ({ users }) => {
     for (let i = 0; i < users.length; i++) {
       if (users[i].username === account.username) {
         if (users[i].password === account.password) {
+          setLoginStatus(true);
           navigate("/tarabol-app-front-end-web/homepage");
         } else {
           setError(true);
@@ -236,5 +237,11 @@ const mapStateToProps = (state) => {
     users: state.userReducer.users,
   };
 };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setLoginStatus: (value) =>
+      dispatch({ type: "SET_LOGIN_STATUS", payload: value }),
+  };
+};
 
-export default connect(mapStateToProps, null)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -4,6 +4,8 @@ import Library from "./components/library";
 import Login from "./components/login";
 import HomePage from "./components/homepage";
 import Signup from "./components/signup";
+import Market from "./components/market";
+import CardDetail from "./components/cardDetail";
 function App() {
   return (
     <Router>
@@ -24,6 +26,11 @@ function App() {
           element={<Library />}
         />
         <Route
+          path="/tarabol-app-front-end-web/marketplace"
+          exact
+          element={<Market />}
+        />
+        <Route
           path="/tarabol-app-front-end-web/login"
           exact
           element={<Login />}
@@ -32,6 +39,11 @@ function App() {
           path="/tarabol-app-front-end-web/signup"
           exact
           element={<Signup />}
+        />
+        <Route
+          path="/tarabol-app-front-end-web/detailcard"
+          exact
+          element={<CardDetail />}
         />
       </Routes>
     </Router>

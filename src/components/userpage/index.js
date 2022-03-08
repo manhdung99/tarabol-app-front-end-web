@@ -1,19 +1,21 @@
 import React from "react";
 import Header from "../header";
-import Introduction from "./Introduction";
-import RecentlySection from "./recentlySection";
-import TrendingSection from "./trendingSection";
-import RecommendedSection from "./recomendedSection";
+import UserMenuBar from "./usermenubar";
 import Footer from "../footer";
+import UserBody from "./userbody";
 export default function UserPage() {
   return (
-    <div className="bg-[F6F7FB]">
-      <Header />
-      <Introduction />
-      <RecentlySection />
-      <TrendingSection />
-      <RecommendedSection />
+    <>
+      <Header isSearch="true" isLogin={true} />
+      <div className="max-w-7xl xl:max-w-[1200px] mx-auto flex mt-4">
+        <div className="w-[20%]">
+          <UserMenuBar />
+        </div>
+        <div className="w-[80%] relative">
+          <UserBody />
+        </div>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }

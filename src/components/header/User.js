@@ -2,11 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
 function User(props) {
   const navigate = useNavigate();
   const [showUserItem, setShowUserItem] = useState(false);
-
   const handleLogout = () => {
+    props.setLoginStatus(false);
     navigate("/tarabol-app-front-end-web/");
   };
 
@@ -22,7 +23,7 @@ function User(props) {
       />
       <p className="ml-[0.5rem]">{props.userName}</p>
       {showUserItem && (
-        <div className="absolute bg-[#fff] left-[-8px] bottom-[-20px] shadow-md shadow-[#0000040] border-[1px] rounded-[4px]  ">
+        <div className="absolute bg-[#fff] left-[-8px] bottom-[-40px] shadow-md shadow-[#0000040] border-[1px] rounded-[4px]  ">
           <ul className="after:absolute after:border-solid after:border-x-[15px] after:border-y-[10px] after:border-l-[transparent] after:border-r-[transparent] after:border-t-[transparent] after:border-b-[#ccc] after:top-[-20px] after:left-[60px] after:opacity-40 ">
             <li
               onClick={() => handleLogout()}
@@ -42,4 +43,11 @@ User.propTypes = {
   userName: PropTypes.string.isRequired,
 };
 
-export default User;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setLoginStatus: (value) =>
+      dispatch({ type: "SET_LOGIN_STATUS", payload: value }),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(User);
