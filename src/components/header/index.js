@@ -5,9 +5,10 @@ import cap from "../image/cap.svg";
 import User from "./User";
 import Image from "../image/image.png";
 import NavBar from "./NavBar";
-export default function Header({ isSearch, isLogin }) {
+import { connect } from "react-redux";
+function Header({ isSearch, isLogin }) {
   return (
-    <div className="flex justify-between py-4 lg:max-w-[1200px] mx-auto">
+    <div className="flex justify-between  md:py-2 lg:py-4 md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto">
       <div className="relative">
         <Link to="/tarabol-app-front-end-web/">
           <img
@@ -25,10 +26,10 @@ export default function Header({ isSearch, isLogin }) {
         </Link>
       </div>
       {isSearch && (
-        <div className="flex items-center relative">
+        <div className="flex items-center relative ml-8">
           <input
             type="text"
-            className="bg-[#ABABAB] w-[343px] h-[49px] outline-0 px-[40px]"
+            className="bg-[#ABABAB] md:w-[240px] md:h-[40px] lg:w-[343px] lg:h-[49px] outline-0 px-[40px]"
           />
           <svg
             className="absolute left-[8px] "
@@ -49,7 +50,7 @@ export default function Header({ isSearch, isLogin }) {
           </svg>
         </div>
       )}
-      <ul className="flex  font-bold text-[18px] items-center gap-[3rem]  ">
+      <ul className="flex  font-bold text-[18px] items-center md-gap-[1rem] lg:gap-[2rem] xl:gap-[3rem]  ">
         <NavBar isLogin={isLogin} />
         {isLogin ? (
           <li>
@@ -57,7 +58,7 @@ export default function Header({ isSearch, isLogin }) {
           </li>
         ) : (
           <>
-            <li className="cursor-pointer ">
+            <li className="cursor-pointer  mr-1">
               <Link
                 className="px-[12px] py-[6px] border-[1px] border-black rounded-[12px] "
                 to="/tarabol-app-front-end-web/signup"
@@ -76,3 +77,11 @@ export default function Header({ isSearch, isLogin }) {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    isLogin: state.userReducer.isLogin,
+  };
+};
+
+export default connect(mapStateToProps, null)(Header);

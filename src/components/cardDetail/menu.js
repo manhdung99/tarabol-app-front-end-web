@@ -5,20 +5,29 @@ export default function Menu() {
   const numberLevel = [1, 2, 3, 4];
   return (
     <>
-      <p className="font-bold text-[36px]">Search</p>
+      <p className="font-bold lg:text-[32px] xl:text-[36px]">Search</p>
       <ul>
         <li>
-          <Link className="text-[18px] hover:opacity-[0.8]" to="/">
+          <Link
+            className="lg:text-[16px] xl:text-[18px] hover:opacity-[0.8]"
+            to="/"
+          >
             All
           </Link>
         </li>
         <li>
-          <Link className="text-[18px] hover:opacity-[0.8]" to="/">
+          <Link
+            className="lg:text-[16px] xl:text-[18px] hover:opacity-[0.8]"
+            to="/"
+          >
             Finished
           </Link>
         </li>
         <li>
-          <Link className="text-[18px] hover:opacity-[0.8]" to="/">
+          <Link
+            className="lg:text-[16px] xl:text-[18px] hover:opacity-[0.8]"
+            to="/"
+          >
             Level
           </Link>
         </li>

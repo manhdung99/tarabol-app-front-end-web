@@ -10,7 +10,7 @@ export default function CardDetail() {
   return (
     <>
       <Header isLogin={true} isSearch={true} />
-      <div className="max-w-7xl lg:max-w-[1200px] mx-auto">
+      <div className=" md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto">
         <p className="text-[36px] font-bold">Introduction to CS</p>
         <div className="flex">
           {yellowStars.map((item) => (
@@ -51,10 +51,10 @@ export default function CardDetail() {
             4.6 (10+)
           </p>
         </div>
-        <div className="flex py-8 justify-between">
-          <div className="w-[368px] h-[172px] rounded-[10px] border-[1px] border-black  items-center px-[32px] flex justify-between">
+        <div className="flex py-8 gap-[2.5rem] justify-between">
+          <div className="   w-[368px]  rounded-[10px] border-[1px] border-black  items-center px-[32px] flex justify-between">
             <div className="w-[60%] ">
-              <p className="text-[24px] font-bold text-center">
+              <p className=" md:text-[16px] lg:text-[20px] xl:text-[24px] font-bold text-center">
                 You almost finish the deck
               </p>
             </div>
@@ -92,14 +92,18 @@ export default function CardDetail() {
               </svg>
             </div>
           </div>
-          <div className="w-[368px] h-[172px] rounded-[10px] border-[1px] border-black flex items-center ">
-            <p className="text-[24px] font-bold text-center w-[65%] mx-auto">
+          <div className="   w-[368px]  rounded-[10px] border-[1px] border-black flex items-center ">
+            <p className=" md:py-[24px] lg:py-[36px] xl:py-[50px]  lg:text-[20px] xl:text-[24px] font-bold text-center w-[65%] mx-auto">
               You have learned 150 mins in this deck
             </p>
           </div>
-          <div className="w-[368px] h-[172px] rounded-[10px] border-[1px] border-black flex flex-col justify-center">
-            <p className="text-[24px] font-bold text-center">150 Hard Cards</p>
-            <p className="text-[24px] font-bold text-center">150 Easy Cards</p>
+          <div className="   w-[368px]  rounded-[10px] border-[1px] border-black flex flex-col justify-center">
+            <p className=" lg:text-[20px] xl:text-[24px] font-bold text-center">
+              150 Hard Cards
+            </p>
+            <p className="lg:text-[20px] xl:text-[24px] font-bold text-center">
+              150 Easy Cards
+            </p>
           </div>
         </div>
         <div className="flex">

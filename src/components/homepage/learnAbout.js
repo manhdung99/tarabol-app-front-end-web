@@ -29,9 +29,9 @@ export default function LearnAbout() {
   return (
     <div className="bg-[#fff] pt-[3rem] ">
       <p className="font-[600] text-xl">What's New</p>
-      <div className="flex justify-between ">
+      <div className="flex flex-wrap justify-center md:gap-x-[144px] lg:gap-x-[38px] xl:gap-x-[138px]">
         {introduceItems.map((item, index) => (
-          <Link to="/" key={index}>
+          <Link className="md:mb-8" to="/" key={index}>
             <Card
               width="307px"
               title={item.title}

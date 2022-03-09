@@ -37,7 +37,7 @@ export default function Body() {
   ];
 
   return (
-    <div className="grid grid-cols-3 gap-x-[96px]">
+    <div className="grid md:grid-cols-2 md:gap-x-[64px] xl:grid-cols-3 lg:gap-x-[32px] xl:gap-x-[96px]">
       {cardLesson.map((item, index) => (
         <Lesson
           key={index}

@@ -72,7 +72,11 @@ export default function UserBody() {
       </span>
       <div className="flex justify-between mt-16  flex-wrap">
         {marketItems.map((item, index) => (
-          <Link className="" to="/" key={index}>
+          <Link
+            className=""
+            to="/tarabol-app-front-end-web/detailcard"
+            key={index}
+          >
             <UserCard
               title={item.title}
               authorAvatar={item.authorAvatar}

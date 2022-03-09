@@ -4,11 +4,11 @@ import Menubar from "./menubar";
 import Footer from "../footer";
 import BodyItem from "./bodyitem";
 import { connect } from "react-redux";
-function Market({ isLogin }) {
+function Market() {
   return (
     <>
-      <Header isLogin={isLogin} isSearch={true} />
-      <div className="max-w-7xl lg:max-w-[1200px] mx-auto flex mt-4 ">
+      <Header isSearch={true} />
+      <div className=" md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto flex mt-4 ">
         <div className="w-[20%]">
           <Menubar />
         </div>
@@ -21,10 +21,4 @@ function Market({ isLogin }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    isLogin: state.userReducer.isLogin,
-  };
-};
-
-export default connect(mapStateToProps, null)(Market);
+export default Market;

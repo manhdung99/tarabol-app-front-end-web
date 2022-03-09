@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <div>
       <Header isSearch={false} isLogin={false} />
-      <div className="lg:max-w-[1200px] mx-auto">
+      <div className=" md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto">
         <Sologan />
         <LearnAbout />
         <Introdule />

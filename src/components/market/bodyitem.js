@@ -54,7 +54,7 @@ export default function BodyItem() {
 
   return (
     <>
-      <span className="flex items-center absolute right-0 ">
+      <span className="flex items-center absolute right-8 ">
         <p className="font-bold text-[18px] ">Sort by</p>
         <svg
           className="mt-[1px] ml-[4px]"
@@ -70,7 +70,7 @@ export default function BodyItem() {
           />
         </svg>
       </span>
-      <div className="flex justify-between mt-4  flex-wrap">
+      <div className="mt-4 grid md:grid-cols-2 lg:grid-cols-3">
         {marketItems.map((item, index) => (
           <Link className="scale-[0.8]" to="/" key={index}>
             <Card

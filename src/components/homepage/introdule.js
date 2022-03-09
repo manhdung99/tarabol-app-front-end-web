@@ -3,12 +3,12 @@ import whoweare from "../image/whoweare.png";
 export default function Introdule() {
   return (
     <div className=" max-w-7xl mx-auto">
-      <p className="font-bold text-[65px] text-black text-center w-full py-8">
+      <p className="font-bold md:text-[40px] lg:text-[65px] text-black text-center w-full py-8">
         Who are we?
       </p>
       <div className="flex items-center justify-between">
         <div className="w-[50%]">
-          <p className="font-[600] text-[26px] ">
+          <p className="font-[600] md:text-[16px] lg:text-[26px] ">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type

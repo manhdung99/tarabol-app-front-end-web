@@ -15,23 +15,27 @@ export default function Menubar() {
   ];
   return (
     <div>
-      <p className="font-bold text-[36px]">Search</p>
+      <p className="font-bold  md:text-[28px] lg:text-[36px]">Search</p>
       <ul className="pb-[8px] relative after:w-[80%] after:h-[1px] after:bottom-[-8px] after:bg-black after:absolute">
         {searchItems.map((item) => (
-          <li key={item.name} className="text-[18px] my-2">
+          <li key={item.name} className="md:text-[12px] lg:text-[18px] my-2">
             <Link to={item.link}>{item.name}</Link>
           </li>
         ))}
       </ul>
-      <p className="text-[24px] font-bold pt-[24px]">Topic</p>
+      <p className=" md:text-[20px] lg:text-[24px] font-bold pt-[24px]">
+        Topic
+      </p>
       <ul className=" pb-[8px] relative after:w-[80%] after:h-[1px] after:bottom-[-8px] after:bg-black after:absolute ">
         {topicItems.map((item) => (
-          <li key={item.name} className="text-[18px] my-2">
+          <li key={item.name} className="md:text-[12px] lg:text-[18px] my-2">
             <Link to={item.link}>{item.name}</Link>
           </li>
         ))}
       </ul>
-      <p className=" pt-[24px] text-[24px] font-bold">Price</p>
+      <p className=" pt-[24px] md:text-[20px] lg:text-[24px] font-bold">
+        Price
+      </p>
       <input
         className="h-[3px] w-[80%]  "
         type="range"
@@ -39,7 +43,7 @@ export default function Menubar() {
         min="0"
         max="100"
       />
-      <div className="w-[80%] flex justify-between text-[18px]">
+      <div className="w-[80%] flex justify-between md:text-[16px] lg:text-[18px]">
         <p>0$</p>
         <p>150$</p>
       </div>
