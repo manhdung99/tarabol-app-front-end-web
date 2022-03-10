@@ -1,56 +1,133 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ImgDescription from "../image/study-background.png";
 import { Link } from "react-router-dom";
-import Card from "../card";
+import Deck from "../deck";
+import { connect } from "react-redux";
 
-export default function BodyItem() {
-  const marketItems = [
-    {
-      title: "Deck Title",
-      authorName: "Author Name",
-      descriptionImg: ImgDescription,
-    },
-    {
-      title: "Deck Title",
-      authorName: "Author Name",
-      descriptionImg: ImgDescription,
-    },
-    {
-      title: "Deck Title",
-      authorName: "Author Name",
-      descriptionImg: ImgDescription,
-    },
-    {
-      title: "Deck Title",
-      authorName: "Author Name",
-      descriptionImg: ImgDescription,
-    },
-    {
-      title: "Deck Title",
-      authorName: "Author Name",
-      descriptionImg: ImgDescription,
-    },
-    {
-      title: "Deck Title",
-      authorName: "Author Name",
-      descriptionImg: ImgDescription,
-    },
-    {
-      title: "Deck Title",
-      authorName: "Author Name",
-      descriptionImg: ImgDescription,
-    },
-    {
-      title: "Deck Title",
-      authorName: "Author Name",
-      descriptionImg: ImgDescription,
-    },
-    {
-      title: "Deck Title",
-      authorName: "Author Name",
-      descriptionImg: ImgDescription,
-    },
-  ];
+function BodyItem({ marketItems, setMarketItems }) {
+  useEffect(() => {
+    const marketItems = [
+      {
+        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a1",
+        title: "Deck title",
+        level: "Beginner",
+        num_chapters: 120,
+        num_cards: 1000,
+        rating: 4.6,
+        reviewers: 10,
+        author: "Author name",
+        image: ImgDescription,
+        price: 1,
+        date_last_updated: "2022-02-02",
+      },
+      {
+        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a2",
+        title: "Deck title",
+        level: "Beginner",
+        num_chapters: 120,
+        num_cards: 1000,
+        rating: 4.6,
+        reviewers: 10,
+        author: "Author name",
+        image: ImgDescription,
+        price: 0,
+        date_last_updated: "2022-02-02",
+      },
+      {
+        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a3",
+        title: "Deck title",
+        level: "Beginner",
+        num_chapters: 120,
+        num_cards: 1000,
+        rating: 4.8,
+        reviewers: 10,
+        author: "Author name",
+        image: ImgDescription,
+        price: 10,
+        date_last_updated: "2022-02-02",
+      },
+      {
+        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a4",
+        title: "Deck title",
+        level: "Beginner",
+        num_chapters: 120,
+        num_cards: 1000,
+        rating: 4.6,
+        reviewers: 10,
+        author: "Author name",
+        image: ImgDescription,
+        price: 0,
+        date_last_updated: "2022-02-02",
+      },
+      {
+        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a5",
+        title: "Deck title",
+        level: "Beginner",
+        num_chapters: 120,
+        num_cards: 1000,
+        rating: 4.6,
+        reviewers: 10,
+        author: "Author name",
+        image: ImgDescription,
+        price: 0,
+        date_last_updated: "2022-02-02",
+      },
+      {
+        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a6",
+        title: "Deck title",
+        level: "Beginner",
+        num_chapters: 120,
+        num_cards: 1000,
+        rating: 4.8,
+        reviewers: 10,
+        author: "Author name",
+        image: ImgDescription,
+        price: 2,
+        date_last_updated: "2022-02-02",
+      },
+      {
+        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a7",
+        title: "Deck title",
+        level: "Beginner",
+        num_chapters: 120,
+        num_cards: 1000,
+        rating: 4.6,
+        reviewers: 10,
+        author: "Author name",
+        image: ImgDescription,
+        price: 3,
+        date_last_updated: "2022-02-02",
+      },
+      {
+        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a8",
+        title: "Deck title",
+        level: "Beginner",
+        num_chapters: 120,
+        num_cards: 1000,
+        rating: 4.6,
+        reviewers: 10,
+        author: "Author name",
+        image: ImgDescription,
+        price: 2,
+        date_last_updated: "2022-02-02",
+      },
+      {
+        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a9",
+        title: "Deck title",
+        level: "Beginner",
+        num_chapters: 120,
+        num_cards: 1000,
+        rating: 4.8,
+        reviewers: 10,
+        author: "Author name",
+        image: ImgDescription,
+        price: 5,
+        date_last_updated: "2022-02-02",
+      },
+    ];
+    setMarketItems(marketItems);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -71,19 +148,39 @@ export default function BodyItem() {
         </svg>
       </span>
       <div className="mt-4 grid md:grid-cols-2 lg:grid-cols-3">
-        {marketItems.map((item, index) => (
-          <Link className="scale-[0.8]" to="/" key={index}>
-            <Card
-              title={item.title}
-              authorAvatar={item.authorAvatar}
-              authorName={item.authorName}
-              description={item.description}
-              descriptionImg={item.descriptionImg}
-              price="Free"
-            />
-          </Link>
-        ))}
+        {marketItems.length > 0 &&
+          marketItems.map((item, index) => (
+            <Link className="scale-[0.8]" to="/" key={index}>
+              <Deck
+                title={item.title}
+                level={item.level}
+                num_chapters={item.num_chapters}
+                num_cards={item.num_cards}
+                rating={item.rating}
+                yellow_stars={Math.floor(item.rating)}
+                gray_stars={5 - Math.floor(item.rating)}
+                reviewers={item.reviewers}
+                author={item.author}
+                image={item.image}
+                price={item.price}
+              />
+            </Link>
+          ))}
       </div>
     </>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    marketItems: state.deckReducer.marketItems,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setMarketItems: (value) =>
+      dispatch({ type: "SET_MARKET_ITEMS", payload: value }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BodyItem);

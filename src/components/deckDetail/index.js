@@ -1,18 +1,120 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "../footer";
 import Header from "../header";
 import Body from "./body";
 import Menu from "./menu";
-export default function CardDetail() {
-  const yellowStars = new Array(4).fill(null).map((_, i) => i);
-  const grayStars = new Array(1).fill(null).map((_, i) => i);
+import Image from "../image/study-background.png";
+import { connect } from "react-redux";
+
+function DeckDetail({ deckDetail, setDeckDetail }) {
+  useEffect(() => {
+    const deckDetail = {
+      title: "Title Deck",
+      rating: 4.6,
+      reviewers: 10,
+      progress: 0.5,
+      learn_time: 150,
+      card_evaluation: {
+        hard: 150,
+        medium: 0,
+        easy: 10,
+      },
+      chapters: [
+        {
+          id: "chapter 1",
+          title: "Chapter title",
+          level: 1,
+          num_cards: 10,
+          image: Image,
+          card_evaluation: {
+            hard: 0,
+            medium: 0,
+            easy: 10,
+          },
+        },
+        {
+          id: "chapter 2",
+          title: "Chapter title",
+          level: 1,
+          num_cards: 10,
+          image: Image,
+          card_evaluation: {
+            hard: 0,
+            medium: 0,
+            easy: 10,
+          },
+        },
+        {
+          id: "chapter 3",
+          title: "Chapter title",
+          level: 1,
+          num_cards: 10,
+          image: Image,
+          card_evaluation: {
+            hard: 0,
+            medium: 0,
+            easy: 10,
+          },
+        },
+        {
+          id: "chapter 4",
+          title: "Chapter title",
+          level: 1,
+          num_cards: 10,
+          image: Image,
+          card_evaluation: {
+            hard: 0,
+            medium: 0,
+            easy: 10,
+          },
+        },
+        {
+          id: "chapter 5",
+          title: "Chapter title",
+          level: 1,
+          num_cards: 10,
+          image: Image,
+          card_evaluation: {
+            hard: 0,
+            medium: 0,
+            easy: 10,
+          },
+        },
+        {
+          id: "chapter 6",
+          title: "Chapter title",
+          level: 1,
+          num_cards: 10,
+          image: Image,
+          card_evaluation: {
+            hard: 0,
+            medium: 0,
+            easy: 10,
+          },
+        },
+      ],
+    };
+    setDeckDetail(deckDetail);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const yellowStars = new Array(
+    Math.floor(deckDetail.rating ? deckDetail.rating : 0)
+  )
+    .fill(null)
+    .map((_, i) => i);
+  const grayStars = new Array(
+    5 - Math.floor(deckDetail.rating ? deckDetail.rating : 0)
+  )
+    .fill(null)
+    .map((_, i) => i);
 
   return (
     <>
       <Header isLogin={true} isSearch={true} />
       <div className="md:mt-6 lg:mt-8 md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto">
         <p className="md:text-[28px] lg:text-[36px] font-bold">
-          Introduction to CS
+          {deckDetail.title}
         </p>
         <div className="flex">
           {yellowStars.map((item) => (
@@ -50,7 +152,7 @@ export default function CardDetail() {
             </svg>
           ))}
           <p className="text-[14px] text-left ml-[2px] font-semibold pt-1">
-            4.6 (10+)
+            {deckDetail.rating} ({deckDetail.reviewers}+)
           </p>
         </div>
         <div className="flex py-8 gap-[2.5rem] justify-between">
@@ -74,7 +176,9 @@ export default function CardDetail() {
             a 15.9155 15.9155 0 0 1 0 -31.831"
                 />
                 <path
-                  strokeDasharray="75, 100"
+                  strokeDasharray={
+                    deckDetail?.progress ? deckDetail.progress * 100 : 0
+                  }
                   stroke="#2F80ED"
                   fill="none"
                   strokeWidth="3"
@@ -89,23 +193,32 @@ export default function CardDetail() {
                   x="18"
                   y="20.35"
                 >
-                  75 %
+                  {deckDetail.progress * 100} %
                 </text>
               </svg>
             </div>
           </div>
           <div className="   w-[368px]  rounded-[10px] border-[1px] border-black flex items-center ">
             <p className=" md:py-[24px] lg:py-[36px] xl:py-[50px]  lg:text-[20px] xl:text-[24px] font-bold text-center w-[65%] mx-auto">
-              You have learned 150 mins in this deck
+              You have learned {deckDetail.learn_time} mins in this deck
             </p>
           </div>
           <div className="   w-[368px]  rounded-[10px] border-[1px] border-black flex flex-col justify-center">
-            <p className=" lg:text-[20px] xl:text-[24px] font-bold text-center">
-              150 Hard Cards
-            </p>
-            <p className="lg:text-[20px] xl:text-[24px] font-bold text-center">
-              150 Easy Cards
-            </p>
+            {deckDetail.card_evaluation?.hard > 0 && (
+              <p className=" lg:text-[20px] xl:text-[24px] font-bold text-center">
+                {deckDetail.card_evaluation.hard} Hard Cards
+              </p>
+            )}
+            {deckDetail?.card_evaluation?.medium > 0 && (
+              <p className="lg:text-[20px] xl:text-[24px] font-bold text-center">
+                {deckDetail.card_evaluation.medium} Easy Cards
+              </p>
+            )}
+            {deckDetail?.card_evaluation?.easy > 0 && (
+              <p className="lg:text-[20px] xl:text-[24px] font-bold text-center">
+                {deckDetail.card_evaluation.easy} Easy Cards
+              </p>
+            )}
           </div>
         </div>
         <div className="flex">
@@ -113,7 +226,7 @@ export default function CardDetail() {
             <Menu />
           </div>
           <div className="w-80%">
-            <Body />
+            <Body chapters={deckDetail?.chapters ? deckDetail.chapters : []} />
           </div>
         </div>
       </div>
@@ -121,3 +234,17 @@ export default function CardDetail() {
     </>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    deckDetail: state.deckReducer.deckDetail,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setDeckDetail: (value) =>
+      dispatch({ type: "SET_DETAIL_DECK", payload: value }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DeckDetail);

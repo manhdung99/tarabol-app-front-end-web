@@ -1,56 +1,152 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ImgDescription from "../image/study-background.png";
 import { Link } from "react-router-dom";
-import UserCard from "../usercard";
+import DeckCard from "../userdeck";
+import { connect } from "react-redux";
 
-export default function UserBody() {
-  const marketItems = [
-    {
-      title: "Deck Title",
-      authorName: "Author Name",
-      descriptionImg: ImgDescription,
-    },
-    {
-      title: "Deck Title",
-      authorName: "Author Name",
-      descriptionImg: ImgDescription,
-    },
-    {
-      title: "Deck Title",
-      authorName: "Author Name",
-      descriptionImg: ImgDescription,
-    },
-    {
-      title: "Deck Title",
-      authorName: "Author Name",
-      descriptionImg: ImgDescription,
-    },
-    {
-      title: "Deck Title",
-      authorName: "Author Name",
-      descriptionImg: ImgDescription,
-    },
-    {
-      title: "Deck Title",
-      authorName: "Author Name",
-      descriptionImg: ImgDescription,
-    },
-    {
-      title: "Deck Title",
-      authorName: "Author Name",
-      descriptionImg: ImgDescription,
-    },
-    {
-      title: "Deck Title",
-      authorName: "Author Name",
-      descriptionImg: ImgDescription,
-    },
-    {
-      title: "Deck Title",
-      authorName: "Author Name",
-      descriptionImg: ImgDescription,
-    },
-  ];
+function UserBody({ userDecks, setUserDeck }) {
+  useEffect(() => {
+    const userItems = [
+      {
+        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a3",
+        title: "Deck title",
+        description: "Description here",
+        level: "Beginner",
+        num_chapters: 120,
+        num_cards: 1000,
+        rating: 4.6,
+        reviewers: 10,
+        author: "Author name",
+        image: ImgDescription,
+        progress: 0.75,
+        date_last_learned: "2022-02-02",
+        date_last_updated: "2022-02-02",
+      },
+      {
+        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a1",
+        title: "Deck title",
+        description: "Description here",
+        level: "Beginner",
+        num_chapters: 120,
+        num_cards: 1000,
+        rating: 4.6,
+        reviewers: 10,
+        author: "Author name",
+        image: ImgDescription,
+        progress: 0.5,
+        date_last_learned: "2022-02-02",
+        date_last_updated: "2022-02-02",
+      },
+      {
+        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a2",
+        title: "Deck title",
+        description: "Description here",
+        level: "Beginner",
+        num_chapters: 120,
+        num_cards: 1000,
+        rating: 4.6,
+        reviewers: 10,
+        author: "Author name",
+        image: ImgDescription,
+        progress: 0.25,
+        date_last_learned: "2022-02-02",
+        date_last_updated: "2022-02-02",
+      },
+      {
+        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a4",
+        title: "Deck title",
+        description: "Description here",
+        level: "Beginner",
+        num_chapters: 120,
+        num_cards: 1000,
+        rating: 4.6,
+        reviewers: 10,
+        author: "Author name",
+        image: ImgDescription,
+        progress: 0.2,
+        date_last_learned: "2022-02-02",
+        date_last_updated: "2022-02-02",
+      },
+      {
+        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a5",
+        title: "Deck title",
+        description: "Description here",
+        level: "Beginner",
+        num_chapters: 120,
+        num_cards: 1000,
+        rating: 4.6,
+        reviewers: 10,
+        author: "Author name",
+        image: ImgDescription,
+        progress: 0.6,
+        date_last_learned: "2022-02-02",
+        date_last_updated: "2022-02-02",
+      },
+      {
+        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a6",
+        title: "Deck title",
+        description: "Description here",
+        level: "Beginner",
+        num_chapters: 120,
+        num_cards: 1000,
+        rating: 4.6,
+        reviewers: 10,
+        author: "Author name",
+        image: ImgDescription,
+        progress: 0.75,
+        date_last_learned: "2022-02-02",
+        date_last_updated: "2022-02-02",
+      },
+      {
+        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a7",
+        title: "Deck title",
+        description: "Description here",
+        level: "Beginner",
+        num_chapters: 120,
+        num_cards: 1000,
+        rating: 4.6,
+        reviewers: 10,
+        author: "Author name",
+        image: ImgDescription,
+        progress: 0.75,
+        date_last_learned: "2022-02-02",
+        date_last_updated: "2022-02-02",
+      },
+      {
+        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a8",
+        title: "Deck title",
+        description: "Description here",
+        level: "Beginner",
+        num_chapters: 120,
+        num_cards: 1000,
+        rating: 4.6,
+        reviewers: 10,
+        author: "Author name",
+        image: ImgDescription,
+        progress: 0.75,
+        date_last_learned: "2022-02-02",
+        date_last_updated: "2022-02-02",
+      },
+      {
+        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a9",
+        title: "Deck title",
+        description: "Description here",
+        level: "Beginner",
+        num_chapters: 120,
+        num_cards: 1000,
+        rating: 4.6,
+        reviewers: 10,
+        author: "Author name",
+        image: ImgDescription,
+        progress: 0.75,
+        date_last_learned: "2022-02-02",
+        date_last_updated: "2022-02-02",
+      },
+    ];
+
+    setUserDeck(userItems);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -71,23 +167,45 @@ export default function UserBody() {
         </svg>
       </span>
       <div className="flex justify-between mt-16  flex-wrap">
-        {marketItems.map((item, index) => (
-          <Link
-            className=""
-            to="/tarabol-app-front-end-web/detailcard"
-            key={index}
-          >
-            <UserCard
-              title={item.title}
-              authorAvatar={item.authorAvatar}
-              authorName={item.authorName}
-              description={item.description}
-              descriptionImg={item.descriptionImg}
-              price="Free"
-            />
-          </Link>
-        ))}
+        {userDecks.length > 0 &&
+          userDecks.map((item) => (
+            <Link
+              className=""
+              to="/tarabol-app-front-end-web/detailcard"
+              key={item.id}
+            >
+              <DeckCard
+                title={item.title}
+                description={item.description}
+                level={item.level}
+                num_chapters={item.num_chapters}
+                num_cards={item.num_cards}
+                rating={item.rating}
+                yellow_star={Math.floor(item.rating)}
+                gray_star={5 - Math.floor(item.rating)}
+                reviewers={item.reviewers}
+                author={item.author}
+                image={item.image}
+                progress={item.progress}
+                date_last_learned={item.date_last_learned}
+              />
+            </Link>
+          ))}
       </div>
     </>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    userDecks: state.deckReducer.userDecks,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUserDeck: (value) =>
+      dispatch({ type: "SET_USER_DECKS", payload: value }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserBody);

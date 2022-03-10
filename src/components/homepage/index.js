@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../header";
 import Sologan from "./sologan";
 import Introdule from "./introdule";
-import LearnAbout from "./learnAbout";
+import New from "./news";
 import Footer from "../footer";
 import WhyUs from "./whyus";
 export default function HomePage() {
@@ -11,7 +11,7 @@ export default function HomePage() {
       <Header isSearch={false} isLogin={false} />
       <div className=" md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto">
         <Sologan />
-        <LearnAbout />
+        <New />
         <Introdule />
         <WhyUs />
         {/* <Connect /> */}

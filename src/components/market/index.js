@@ -3,7 +3,6 @@ import Header from "../header";
 import Menubar from "./menubar";
 import Footer from "../footer";
 import BodyItem from "./bodyitem";
-import { connect } from "react-redux";
 function Market() {
   return (
     <>

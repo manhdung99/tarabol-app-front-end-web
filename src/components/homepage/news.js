@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import React from "react";
 import { Link } from "react-router-dom";
 import Deck from "../deck";
+import Trending from "./Trending";
 import ImgDescription from "../image/study-background.png";
-function Trending({ trendingDeck, setTrendingDeck }) {
+import { useEffect } from "react";
+import { connect } from "react-redux";
+function New({ newsDeck, setNewDeck }) {
   useEffect(() => {
-    const trendingItems = [
+    const newItems = [
       {
         id: "4adb602a-3b12-4b0e-9c10-57a50b4894a1",
         title: "Deck title",
@@ -43,24 +45,25 @@ function Trending({ trendingDeck, setTrendingDeck }) {
         date_last_updated: "2022-02-02",
       },
     ];
-    setTrendingDeck(trendingItems);
+    setNewDeck(newItems);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
-    <div className="flex flex-col bg-[#fff] pt-[3rem] ">
-      <p className="font-[600] text-xl">Trending</p>
-      <div className="flex flex-wrap justify-center md:gap-x-[144px]  lg:gap-x-[38px] xl:gap-x-[138px] ">
-        {trendingDeck.length > 0 &&
-          trendingDeck.map((item, index) => (
-            <Link className="md:mb-8" to="/" key={index}>
+    <div className="bg-[#fff] pt-[3rem] ">
+      <p className="font-[600] text-xl">What's New</p>
+      <div className="flex flex-wrap justify-center md:gap-x-[144px] lg:gap-x-[38px] xl:gap-x-[138px]">
+        {newsDeck.length > 0 &&
+          newsDeck.map((item) => (
+            <Link className="md:mb-8" to="/" key={item.id}>
               <Deck
                 title={item.title}
                 level={item.level}
                 num_chapters={item.num_chapters}
                 num_cards={item.num_cards}
                 rating={item.rating}
-                yellow_stars={Math.floor(item.rating)}
-                gray_stars={5 - Math.floor(item.rating)}
+                yellow_stars={4}
+                gray_stars={1}
                 reviewers={item.reviewers}
                 author={item.author}
                 image={item.image}
@@ -68,20 +71,23 @@ function Trending({ trendingDeck, setTrendingDeck }) {
             </Link>
           ))}
       </div>
+      <Trending />
+      <button className="border-[1px] border-black px-[1rem] py-[4px] rounded-[4px] ml-[50%] translate-x-[-50%] mt-[2rem]">
+        Join with us
+      </button>
     </div>
   );
 }
 
 const mapStateToProps = (state) => {
   return {
-    trendingDeck: state.deckReducer.trendingDeck,
+    newsDeck: state.deckReducer.newsDeck,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    setTrendingDeck: (value) =>
-      dispatch({ type: "SET_TRENDING_DECK", payload: value }),
+    setNewDeck: (value) => dispatch({ type: "SET_NEWS_DECK", payload: value }),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Trending);
+export default connect(mapStateToProps, mapDispatchToProps)(New);

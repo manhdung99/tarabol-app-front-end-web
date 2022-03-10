@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
-import PropTypes from "prop-types";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-function Lesson(props) {
+function Lesson({ num_cards, level, title, image, card_evaluation }) {
   const ref = useRef();
   useEffect(() => {
-    ref.current.style.background = "url(" + props.descriptionImg + ")";
+    ref.current.style.background = "url(" + image + ")";
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
@@ -17,10 +16,14 @@ function Lesson(props) {
         <div className="flex justify-between">
           <div>
             <div>
-              <p className="font-bold text-[15px]">Variable</p>
+              <p className="font-bold text-[15px]">{title}</p>
               <div className="flex pb-4">
-                <p className="mr-[4px] text-[10px] text-[#BDBDBD]">Level 1</p>
-                <p className="mr-[4px] text-[10px] text-[#BDBDBD]">10 Cards</p>
+                <p className="mr-[4px] text-[10px] text-[#BDBDBD]">
+                  Level {level}
+                </p>
+                <p className="mr-[4px] text-[10px] text-[#BDBDBD]">
+                  {num_cards} Cards
+                </p>
               </div>
             </div>
             <div className="py-2">
@@ -43,12 +46,5 @@ function Lesson(props) {
     </div>
   );
 }
-Lesson.propTypes = {
-  title: PropTypes.string.isRequired,
-  descriptionImg: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
-    .isRequired,
-  //   .isRequired,
-  // description: PropTypes.string.isRequired,
-};
 
 export default Lesson;

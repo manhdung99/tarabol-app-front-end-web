@@ -5,10 +5,12 @@ import App from "./App";
 import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
 import { userReducer } from "./store/reducers/userReducer";
+import { deckReducer } from "./store/reducers/deckReducer";
 import reportWebVitals from "./reportWebVitals";
 
 const rootReducer = combineReducers({
   userReducer,
+  deckReducer,
 });
 
 const reduxStore = createStore(
