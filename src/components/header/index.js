@@ -14,14 +14,14 @@ function Header({ isSearch, isLogin }) {
           <img
             src={elephant}
             alt="Logo"
-            className="relative w-[102px] h-[60px] left-[25px] mt-[20px] mb-[8px] cursor-pointer"
+            className="relative w-[102px] h-[60px] ml-[-8px] mt-[20px] mb-[8px] cursor-pointer"
           />
         </Link>
         <Link to="/tarabol-app-front-end-web/">
           <img
             src={cap}
             alt="Logo"
-            className="absolute w-[45px] h-[38px] left-[64px] top-[4px] cursor-pointer"
+            className="absolute w-[45px] h-[38px] left-[27px] top-[4px] cursor-pointer"
           />
         </Link>
       </div>

@@ -10,8 +10,10 @@ export default function CardDetail() {
   return (
     <>
       <Header isLogin={true} isSearch={true} />
-      <div className=" md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto">
-        <p className="text-[36px] font-bold">Introduction to CS</p>
+      <div className="md:mt-6 lg:mt-8 md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto">
+        <p className="md:text-[28px] lg:text-[36px] font-bold">
+          Introduction to CS
+        </p>
         <div className="flex">
           {yellowStars.map((item) => (
             <svg
