@@ -112,7 +112,7 @@ function DeckDetail({ deckDetail, setDeckDetail }) {
   return (
     <>
       <Header isLogin={true} isSearch={true} />
-      <div className="md:mt-6 lg:mt-8 md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto">
+      <div className="md:mt-6 lg:mt-8 sm:max-w-[95%] md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto">
         <p className="md:text-[28px] lg:text-[36px] font-bold">
           {deckDetail.title}
         </p>
@@ -155,7 +155,7 @@ function DeckDetail({ deckDetail, setDeckDetail }) {
             {deckDetail.rating} ({deckDetail.reviewers}+)
           </p>
         </div>
-        <div className="flex py-8 gap-[2.5rem] justify-between">
+        <div className="flex sm:flex-wrap md:flex-nowrap py-8 gap-[2.5rem] justify-between">
           <div className="   w-[368px]  rounded-[10px] border-[1px] border-black  items-center px-[32px] flex justify-between">
             <div className="w-[60%] ">
               <p className=" md:text-[16px] lg:text-[20px] xl:text-[24px] font-bold text-center">
@@ -221,11 +221,11 @@ function DeckDetail({ deckDetail, setDeckDetail }) {
             )}
           </div>
         </div>
-        <div className="flex">
-          <div className="w-[20%]">
+        <div className="flex flex-wrap">
+          <div className=" sm:w-full md:w-[20%]">
             <Menu />
           </div>
-          <div className="w-80%">
+          <div className="sm:w-full md:w-[80%]">
             <Body chapters={deckDetail?.chapters ? deckDetail.chapters : []} />
           </div>
         </div>

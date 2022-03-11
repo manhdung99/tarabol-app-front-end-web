@@ -11,7 +11,7 @@ export default function NavBar({ isLogin }) {
   ];
 
   return (
-    <div className=" flex items-center">
+    <div className=" sm:hidden md:flex items-center">
       <ul className="flex">
         {isLogin === false ? (
           <li className="relative text-xl mx-[1rem] font-[600] after:absolute after:w-[100%] after:bg-[#a8b1ff] after:h-[4px] after:left-0 after:bottom-[-8px] after:rounded after:hidden active:after:block hover:after:block">

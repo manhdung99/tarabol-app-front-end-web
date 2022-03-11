@@ -6,7 +6,7 @@ export default function Menu() {
   return (
     <>
       <p className="font-bold lg:text-[32px] xl:text-[36px]">Search</p>
-      <ul>
+      <ul className="flex gap-x-[16px]">
         <li>
           <Link
             className="lg:text-[16px] xl:text-[18px] hover:opacity-[0.8]"
@@ -32,7 +32,7 @@ export default function Menu() {
           </Link>
         </li>
       </ul>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap  md:justify-between">
         {numberLevel.map((item) => (
           <Link
             key={item}

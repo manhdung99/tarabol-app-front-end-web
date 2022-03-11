@@ -166,7 +166,7 @@ function UserBody({ userDecks, setUserDeck }) {
           />
         </svg>
       </span>
-      <div className="flex justify-between mt-16  flex-wrap">
+      <div className="flex sm:justify-center md:justify-between mt-16  flex-wrap">
         {userDecks.length > 0 &&
           userDecks.map((item) => (
             <Link
