@@ -36,9 +36,9 @@ function Header({ isSearch, isLogin }) {
             >
               <path
                 fill="#B7BFC6"
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 stroke="none"
-                stroke-width="1"
+                strokeWidth="1"
                 id="Icon/small/hamburger"
                 d="M5 13a1 1 0 010-2h14a1 1 0 010 2H5zm0 4a1 1 0 010-2h14a1 1 0 010 2H5zm0-8a1 1 0 110-2h14a1 1 0 010 2H5z"
               ></path>

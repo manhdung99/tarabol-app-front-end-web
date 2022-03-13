@@ -23,12 +23,13 @@ function UserDeck({
   const grayStars = new Array(gray_star).fill(null).map((_, i) => i);
   useEffect(() => {
     ref.current.style.background = "url(" + image + ")";
+    ref.current.style.backgroundSize = "cover";
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div
       ref={ref}
-      className=" w-[256px] relative shadow-md shadow-[#00000040] rounded-[12px] pt-[25%] mb-[2rem] hover:scale-[1.05]"
+      className=" w-[256px] relative shadow-md shadow-[#00000040] bg-cover   rounded-[12px] pt-[25%] mb-[2rem] hover:scale-[1.05]"
     >
       <div className="bg-[#fff] px-[8px] border-[1px] border-black rounded-b-[8px] border-t-0">
         <div className="flex justify-between">

@@ -5,6 +5,7 @@ function Lesson({ num_cards, level, title, image, card_evaluation }) {
   const ref = useRef();
   useEffect(() => {
     ref.current.style.background = "url(" + image + ")";
+    ref.current.style.backgroundSize = "cover";
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (

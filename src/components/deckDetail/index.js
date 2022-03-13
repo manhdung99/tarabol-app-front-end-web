@@ -7,96 +7,96 @@ import Image from "../image/study-background.png";
 import { connect } from "react-redux";
 
 function DeckDetail({ deckDetail, setDeckDetail }) {
-  useEffect(() => {
-    const deckDetail = {
-      title: "Title Deck",
-      rating: 4.6,
-      reviewers: 10,
-      progress: 0.5,
-      learn_time: 150,
-      card_evaluation: {
-        hard: 150,
-        medium: 0,
-        easy: 10,
-      },
-      chapters: [
-        {
-          id: "chapter 1",
-          title: "Chapter title",
-          level: 1,
-          num_cards: 10,
-          image: Image,
-          card_evaluation: {
-            hard: 0,
-            medium: 0,
-            easy: 10,
-          },
-        },
-        {
-          id: "chapter 2",
-          title: "Chapter title",
-          level: 1,
-          num_cards: 10,
-          image: Image,
-          card_evaluation: {
-            hard: 0,
-            medium: 0,
-            easy: 10,
-          },
-        },
-        {
-          id: "chapter 3",
-          title: "Chapter title",
-          level: 1,
-          num_cards: 10,
-          image: Image,
-          card_evaluation: {
-            hard: 0,
-            medium: 0,
-            easy: 10,
-          },
-        },
-        {
-          id: "chapter 4",
-          title: "Chapter title",
-          level: 1,
-          num_cards: 10,
-          image: Image,
-          card_evaluation: {
-            hard: 0,
-            medium: 0,
-            easy: 10,
-          },
-        },
-        {
-          id: "chapter 5",
-          title: "Chapter title",
-          level: 1,
-          num_cards: 10,
-          image: Image,
-          card_evaluation: {
-            hard: 0,
-            medium: 0,
-            easy: 10,
-          },
-        },
-        {
-          id: "chapter 6",
-          title: "Chapter title",
-          level: 1,
-          num_cards: 10,
-          image: Image,
-          card_evaluation: {
-            hard: 0,
-            medium: 0,
-            easy: 10,
-          },
-        },
-      ],
-    };
-    setDeckDetail(deckDetail);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   const deckDetail = {
+  //     title: "Title Deck",
+  //     rating: 4.6,
+  //     reviewers: 10,
+  //     progress: 0.5,
+  //     learn_time: 150,
+  //     card_evaluation: {
+  //       hard: 150,
+  //       medium: 0,
+  //       easy: 10,
+  //     },
+  //     chapters: [
+  //       {
+  //         id: "chapter 1",
+  //         title: "Chapter title",
+  //         level: 1,
+  //         num_cards: 10,
+  //         image: Image,
+  //         card_evaluation: {
+  //           hard: 0,
+  //           medium: 0,
+  //           easy: 10,
+  //         },
+  //       },
+  //       {
+  //         id: "chapter 2",
+  //         title: "Chapter title",
+  //         level: 1,
+  //         num_cards: 10,
+  //         image: Image,
+  //         card_evaluation: {
+  //           hard: 0,
+  //           medium: 0,
+  //           easy: 10,
+  //         },
+  //       },
+  //       {
+  //         id: "chapter 3",
+  //         title: "Chapter title",
+  //         level: 1,
+  //         num_cards: 10,
+  //         image: Image,
+  //         card_evaluation: {
+  //           hard: 0,
+  //           medium: 0,
+  //           easy: 10,
+  //         },
+  //       },
+  //       {
+  //         id: "chapter 4",
+  //         title: "Chapter title",
+  //         level: 1,
+  //         num_cards: 10,
+  //         image: Image,
+  //         card_evaluation: {
+  //           hard: 0,
+  //           medium: 0,
+  //           easy: 10,
+  //         },
+  //       },
+  //       {
+  //         id: "chapter 5",
+  //         title: "Chapter title",
+  //         level: 1,
+  //         num_cards: 10,
+  //         image: Image,
+  //         card_evaluation: {
+  //           hard: 0,
+  //           medium: 0,
+  //           easy: 10,
+  //         },
+  //       },
+  //       {
+  //         id: "chapter 6",
+  //         title: "Chapter title",
+  //         level: 1,
+  //         num_cards: 10,
+  //         image: Image,
+  //         card_evaluation: {
+  //           hard: 0,
+  //           medium: 0,
+  //           easy: 10,
+  //         },
+  //       },
+  //     ],
+  //   };
+  //   setDeckDetail(deckDetail);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   const yellowStars = new Array(
     Math.floor(deckDetail.rating ? deckDetail.rating : 0)
@@ -108,6 +108,8 @@ function DeckDetail({ deckDetail, setDeckDetail }) {
   )
     .fill(null)
     .map((_, i) => i);
+
+  console.log(deckDetail);
 
   return (
     <>
@@ -176,9 +178,7 @@ function DeckDetail({ deckDetail, setDeckDetail }) {
             a 15.9155 15.9155 0 0 1 0 -31.831"
                 />
                 <path
-                  strokeDasharray={
-                    deckDetail?.progress ? deckDetail.progress * 100 : 0
-                  }
+                  strokeDasharray={`${deckDetail.progress * 100},100`}
                   stroke="#2F80ED"
                   fill="none"
                   strokeWidth="3"
@@ -226,7 +226,7 @@ function DeckDetail({ deckDetail, setDeckDetail }) {
             <Menu />
           </div>
           <div className="sm:w-full md:w-[80%]">
-            <Body chapters={deckDetail?.chapters ? deckDetail.chapters : []} />
+            <Body chapters={deckDetail?.chapter ? deckDetail.chapter : []} />
           </div>
         </div>
       </div>
@@ -240,11 +240,11 @@ const mapStateToProps = (state) => {
     deckDetail: state.deckReducer.deckDetail,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setDeckDetail: (value) =>
-      dispatch({ type: "SET_DETAIL_DECK", payload: value }),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     setDeckDetail: (value) =>
+//       dispatch({ type: "SET_DETAIL_DECK", payload: value }),
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DeckDetail);
+export default connect(mapStateToProps, null)(DeckDetail);

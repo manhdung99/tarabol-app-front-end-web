@@ -22,6 +22,7 @@ function Deck({
   const number_gray_stars = new Array(gray_stars).fill(null).map((_, i) => i);
   useEffect(() => {
     ref.current.style.background = "url(" + image + ")";
+    ref.current.style.backgroundSize = "cover";
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (

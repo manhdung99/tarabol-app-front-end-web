@@ -3,132 +3,156 @@ import ImgDescription from "../image/study-background.png";
 import { Link } from "react-router-dom";
 import Deck from "../deck";
 import { connect } from "react-redux";
+import axios from "axios";
 
 function BodyItem({ marketItems, setMarketItems }) {
+  // useEffect(() => {
+  //   const marketItems = [
+  //     {
+  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a1",
+  //       title: "Deck title",
+  //       level: "Beginner",
+  //       num_chapters: 120,
+  //       num_cards: 1000,
+  //       rating: 4.6,
+  //       reviewers: 10,
+  //       author: "Author name",
+  //       image: ImgDescription,
+  //       price: 1,
+  //       date_last_updated: "2022-02-02",
+  //     },
+  //     {
+  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a2",
+  //       title: "Deck title",
+  //       level: "Beginner",
+  //       num_chapters: 120,
+  //       num_cards: 1000,
+  //       rating: 4.6,
+  //       reviewers: 10,
+  //       author: "Author name",
+  //       image: ImgDescription,
+  //       price: 0,
+  //       date_last_updated: "2022-02-02",
+  //     },
+  //     {
+  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a3",
+  //       title: "Deck title",
+  //       level: "Beginner",
+  //       num_chapters: 120,
+  //       num_cards: 1000,
+  //       rating: 4.8,
+  //       reviewers: 10,
+  //       author: "Author name",
+  //       image: ImgDescription,
+  //       price: 10,
+  //       date_last_updated: "2022-02-02",
+  //     },
+  //     {
+  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a4",
+  //       title: "Deck title",
+  //       level: "Beginner",
+  //       num_chapters: 120,
+  //       num_cards: 1000,
+  //       rating: 4.6,
+  //       reviewers: 10,
+  //       author: "Author name",
+  //       image: ImgDescription,
+  //       price: 0,
+  //       date_last_updated: "2022-02-02",
+  //     },
+  //     {
+  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a5",
+  //       title: "Deck title",
+  //       level: "Beginner",
+  //       num_chapters: 120,
+  //       num_cards: 1000,
+  //       rating: 4.6,
+  //       reviewers: 10,
+  //       author: "Author name",
+  //       image: ImgDescription,
+  //       price: 0,
+  //       date_last_updated: "2022-02-02",
+  //     },
+  //     {
+  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a6",
+  //       title: "Deck title",
+  //       level: "Beginner",
+  //       num_chapters: 120,
+  //       num_cards: 1000,
+  //       rating: 4.8,
+  //       reviewers: 10,
+  //       author: "Author name",
+  //       image: ImgDescription,
+  //       price: 2,
+  //       date_last_updated: "2022-02-02",
+  //     },
+  //     {
+  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a7",
+  //       title: "Deck title",
+  //       level: "Beginner",
+  //       num_chapters: 120,
+  //       num_cards: 1000,
+  //       rating: 4.6,
+  //       reviewers: 10,
+  //       author: "Author name",
+  //       image: ImgDescription,
+  //       price: 3,
+  //       date_last_updated: "2022-02-02",
+  //     },
+  //     {
+  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a8",
+  //       title: "Deck title",
+  //       level: "Beginner",
+  //       num_chapters: 120,
+  //       num_cards: 1000,
+  //       rating: 4.6,
+  //       reviewers: 10,
+  //       author: "Author name",
+  //       image: ImgDescription,
+  //       price: 2,
+  //       date_last_updated: "2022-02-02",
+  //     },
+  //     {
+  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a9",
+  //       title: "Deck title",
+  //       level: "Beginner",
+  //       num_chapters: 120,
+  //       num_cards: 1000,
+  //       rating: 4.8,
+  //       reviewers: 10,
+  //       author: "Author name",
+  //       image: ImgDescription,
+  //       price: 5,
+  //       date_last_updated: "2022-02-02",
+  //     },
+  //   ];
+  //   setMarketItems(marketItems);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
   useEffect(() => {
-    const marketItems = [
-      {
-        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a1",
-        title: "Deck title",
-        level: "Beginner",
-        num_chapters: 120,
-        num_cards: 1000,
-        rating: 4.6,
-        reviewers: 10,
-        author: "Author name",
-        image: ImgDescription,
-        price: 1,
-        date_last_updated: "2022-02-02",
-      },
-      {
-        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a2",
-        title: "Deck title",
-        level: "Beginner",
-        num_chapters: 120,
-        num_cards: 1000,
-        rating: 4.6,
-        reviewers: 10,
-        author: "Author name",
-        image: ImgDescription,
-        price: 0,
-        date_last_updated: "2022-02-02",
-      },
-      {
-        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a3",
-        title: "Deck title",
-        level: "Beginner",
-        num_chapters: 120,
-        num_cards: 1000,
-        rating: 4.8,
-        reviewers: 10,
-        author: "Author name",
-        image: ImgDescription,
-        price: 10,
-        date_last_updated: "2022-02-02",
-      },
-      {
-        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a4",
-        title: "Deck title",
-        level: "Beginner",
-        num_chapters: 120,
-        num_cards: 1000,
-        rating: 4.6,
-        reviewers: 10,
-        author: "Author name",
-        image: ImgDescription,
-        price: 0,
-        date_last_updated: "2022-02-02",
-      },
-      {
-        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a5",
-        title: "Deck title",
-        level: "Beginner",
-        num_chapters: 120,
-        num_cards: 1000,
-        rating: 4.6,
-        reviewers: 10,
-        author: "Author name",
-        image: ImgDescription,
-        price: 0,
-        date_last_updated: "2022-02-02",
-      },
-      {
-        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a6",
-        title: "Deck title",
-        level: "Beginner",
-        num_chapters: 120,
-        num_cards: 1000,
-        rating: 4.8,
-        reviewers: 10,
-        author: "Author name",
-        image: ImgDescription,
-        price: 2,
-        date_last_updated: "2022-02-02",
-      },
-      {
-        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a7",
-        title: "Deck title",
-        level: "Beginner",
-        num_chapters: 120,
-        num_cards: 1000,
-        rating: 4.6,
-        reviewers: 10,
-        author: "Author name",
-        image: ImgDescription,
-        price: 3,
-        date_last_updated: "2022-02-02",
-      },
-      {
-        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a8",
-        title: "Deck title",
-        level: "Beginner",
-        num_chapters: 120,
-        num_cards: 1000,
-        rating: 4.6,
-        reviewers: 10,
-        author: "Author name",
-        image: ImgDescription,
-        price: 2,
-        date_last_updated: "2022-02-02",
-      },
-      {
-        id: "4adb602a-3b12-4b0e-9c10-57a50b4894a9",
-        title: "Deck title",
-        level: "Beginner",
-        num_chapters: 120,
-        num_cards: 1000,
-        rating: 4.8,
-        reviewers: 10,
-        author: "Author name",
-        image: ImgDescription,
-        price: 5,
-        date_last_updated: "2022-02-02",
-      },
-    ];
-    setMarketItems(marketItems);
+    const ourRequest = axios.CancelToken.source();
+    async function fetchData() {
+      try {
+        const response = await axios.get(
+          "https://622aaf4814ccb950d22288dd.mockapi.io/api/v1/decks",
+          {
+            cancelToken: ourRequest.token, // <-- 2nd step
+          }
+        );
+        const items = response && response.data ? response.data : [];
+        setMarketItems(items);
+      } catch (error) {
+        if (axios.isCancel(error)) {
+          console.log("Request Cancel :", error.message);
+        }
+      }
+    }
+    fetchData();
+    return () => {
+      ourRequest.cancel("Cancel by user"); // <-- 3rd step
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   return (
     <>
       <span className="flex items-center absolute right-8 ">
