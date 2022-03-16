@@ -1,103 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Footer from "../footer";
 import Header from "../header";
 import Body from "./body";
 import Menu from "./menu";
-import Image from "../image/study-background.png";
+// import Image from "../image/study-background.png";
 import { connect } from "react-redux";
 
 function DeckDetail({ deckDetail, setDeckDetail }) {
-  // useEffect(() => {
-  //   const deckDetail = {
-  //     title: "Title Deck",
-  //     rating: 4.6,
-  //     reviewers: 10,
-  //     progress: 0.5,
-  //     learn_time: 150,
-  //     card_evaluation: {
-  //       hard: 150,
-  //       medium: 0,
-  //       easy: 10,
-  //     },
-  //     chapters: [
-  //       {
-  //         id: "chapter 1",
-  //         title: "Chapter title",
-  //         level: 1,
-  //         num_cards: 10,
-  //         image: Image,
-  //         card_evaluation: {
-  //           hard: 0,
-  //           medium: 0,
-  //           easy: 10,
-  //         },
-  //       },
-  //       {
-  //         id: "chapter 2",
-  //         title: "Chapter title",
-  //         level: 1,
-  //         num_cards: 10,
-  //         image: Image,
-  //         card_evaluation: {
-  //           hard: 0,
-  //           medium: 0,
-  //           easy: 10,
-  //         },
-  //       },
-  //       {
-  //         id: "chapter 3",
-  //         title: "Chapter title",
-  //         level: 1,
-  //         num_cards: 10,
-  //         image: Image,
-  //         card_evaluation: {
-  //           hard: 0,
-  //           medium: 0,
-  //           easy: 10,
-  //         },
-  //       },
-  //       {
-  //         id: "chapter 4",
-  //         title: "Chapter title",
-  //         level: 1,
-  //         num_cards: 10,
-  //         image: Image,
-  //         card_evaluation: {
-  //           hard: 0,
-  //           medium: 0,
-  //           easy: 10,
-  //         },
-  //       },
-  //       {
-  //         id: "chapter 5",
-  //         title: "Chapter title",
-  //         level: 1,
-  //         num_cards: 10,
-  //         image: Image,
-  //         card_evaluation: {
-  //           hard: 0,
-  //           medium: 0,
-  //           easy: 10,
-  //         },
-  //       },
-  //       {
-  //         id: "chapter 6",
-  //         title: "Chapter title",
-  //         level: 1,
-  //         num_cards: 10,
-  //         image: Image,
-  //         card_evaluation: {
-  //           hard: 0,
-  //           medium: 0,
-  //           easy: 10,
-  //         },
-  //       },
-  //     ],
-  //   };
-  //   setDeckDetail(deckDetail);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
-
   const yellowStars = new Array(
     Math.floor(deckDetail.rating ? deckDetail.rating : 0)
   )
@@ -109,12 +18,10 @@ function DeckDetail({ deckDetail, setDeckDetail }) {
     .fill(null)
     .map((_, i) => i);
 
-  console.log(deckDetail);
-
   return (
     <>
       <Header isLogin={true} isSearch={true} />
-      <div className="md:mt-6 lg:mt-8 sm:max-w-[95%] md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto">
+      <div className="sm:mt-[88px] md:mt-6 lg:mt-8 sm:max-w-[95%] md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto">
         <p className="md:text-[28px] lg:text-[36px] font-bold">
           {deckDetail.title}
         </p>

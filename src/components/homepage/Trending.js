@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Deck from "../deck";
-import ImgDescription from "../image/study-background.png";
+// import ImgDescription from "../image/study-background.png";
 function Trending({ trendingDeck, setTrendingDeck }) {
   // useEffect(() => {
   //   const trendingItems = [

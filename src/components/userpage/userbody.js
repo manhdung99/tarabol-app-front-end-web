@@ -217,7 +217,7 @@ function UserBody({ userDecks, setUserDeck, setDeckDetail }) {
           userDecks.map((item) => (
             <Link
               className=""
-              to="/tarabol-app-front-end-web/detailcard"
+              to="/tarabol-app-front-end-web/detaildeck"
               key={item.id}
               onClick={(e) => handleSetDetailDeck(item.id)}
             >

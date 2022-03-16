@@ -11,7 +11,7 @@ function Header({ isSearch, isLogin }) {
 
   return (
     <div className="relative">
-      <div className=" relative  flex justify-between  md:py-2 lg:py-4 sm:max-w-[95%] md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto">
+      <div className=" sm:fixed sm:top-0  md:relative sm:h-[88px] sm:bg-[#fff] sm:z-10  flex justify-between  md:py-2 lg:py-4 sm:w-[100%] md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto">
         <div className="absolute top-[50%] translate-y-[-50%] left-[16px] ">
           {isShowMenu ? (
             <svg
@@ -73,7 +73,7 @@ function Header({ isSearch, isLogin }) {
             <img
               src={cap}
               alt="Logo"
-              className="absolute w-[45px] h-[38px] sm:left-[20%] ssm:left-[28%] md:left-[27px] sm:top-[7px] ssm:top-[4px] cursor-pointer"
+              className="absolute w-[45px] h-[38px] sm:left-[29%] ssm:left-[28%]  md:left-[27px] sm:top-[4px] cursor-pointer"
             />
           </Link>
         </div>
