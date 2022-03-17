@@ -4,6 +4,7 @@ const initState = {
   marketItems: [],
   userDecks: [],
   deckDetail: {},
+  chapterDetail: {},
 };
 
 const deckReducer = (state = initState, action) => {
@@ -32,6 +33,17 @@ const deckReducer = (state = initState, action) => {
       return {
         ...state,
         deckDetail: action.payload,
+      };
+    case "SET_DETAIL_CHAPTER":
+      return {
+        ...state,
+        chapterDetail: action.payload,
+      };
+    case "SET_STATUS_CARD":
+      let newData = { ...state.chapterDetail, cards: action.payload };
+      return {
+        ...state,
+        chapterDetail: newData,
       };
     default:
       return state;

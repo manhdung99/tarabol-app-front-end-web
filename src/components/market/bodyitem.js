@@ -134,7 +134,7 @@ function BodyItem({ marketItems, setMarketItems }) {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "https://622aaf4814ccb950d22288dd.mockapi.io/api/v1/decks",
+          "https://622df7508d943bae348b25be.mockapi.io/api/v1/marketdecks",
           {
             cancelToken: ourRequest.token, // <-- 2nd step
           }

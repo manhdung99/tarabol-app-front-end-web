@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-export default function Body() {
-  const isPractice = true;
+export default function Body({ cards }) {
+  const [isPractice, setIsPractice] = useState(true);
+
+  useEffect(() => {
+    let learnedArray = cards.filter((obj) => obj.status === true);
+    console.log(learnedArray);
+    if (learnedArray.length > 0) {
+      setIsPractice(true);
+    } else {
+      setIsPractice(false);
+    }
+  }, []);
 
   return (
     <>

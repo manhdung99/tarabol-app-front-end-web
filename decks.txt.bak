@@ -11,11 +11,7 @@
   "price": 55,
   "progress": 0.69,
   "date_last_learned": 98,
-  "card_evaluation": {
-   "hard": 150,
-   "medium": 0,
-   "easy": 10
-  },
+  "card_evaluation": {},
   "id": "1",
   "userId": "1"
  },
@@ -31,11 +27,7 @@
   "price": 45,
   "progress": 0.21,
   "date_last_learned": 14,
-  "card_evaluation": {
-   "hard": 150,
-   "medium": 0,
-   "easy": 10
-  },
+  "card_evaluation": {},
   "id": "2",
   "userId": "1"
  },
@@ -51,11 +43,7 @@
   "price": 80,
   "progress": 0.81,
   "date_last_learned": 56,
-  "card_evaluation": {
-   "hard": 150,
-   "medium": 0,
-   "easy": 10
-  },
+  "card_evaluation": {},
   "id": "3",
   "userId": "1"
  },
@@ -71,11 +59,7 @@
   "price": 54,
   "progress": 0.59,
   "date_last_learned": 14,
-  "card_evaluation": {
-   "hard": 150,
-   "medium": 0,
-   "easy": 10
-  },
+  "card_evaluation": {},
   "id": "4",
   "userId": "1"
  },
@@ -91,11 +75,7 @@
   "price": 29,
   "progress": 0.16,
   "date_last_learned": 21,
-  "card_evaluation": {
-   "hard": 150,
-   "medium": 0,
-   "easy": 10
-  },
+  "card_evaluation": {},
   "id": "5",
   "userId": "1"
  },
@@ -111,11 +91,7 @@
   "price": 26,
   "progress": 0.25,
   "date_last_learned": 96,
-  "card_evaluation": {
-   "hard": 150,
-   "medium": 0,
-   "easy": 10
-  },
+  "card_evaluation": {},
   "id": "6",
   "userId": "1"
  },
@@ -131,11 +107,7 @@
   "price": 63,
   "progress": 0.82,
   "date_last_learned": 93,
-  "card_evaluation": {
-   "hard": 150,
-   "medium": 0,
-   "easy": 10
-  },
+  "card_evaluation": {},
   "id": "7",
   "userId": "1"
  },
@@ -151,11 +123,7 @@
   "price": 17,
   "progress": 0.5,
   "date_last_learned": 21,
-  "card_evaluation": {
-   "hard": 150,
-   "medium": 0,
-   "easy": 10
-  },
+  "card_evaluation": {},
   "id": "8",
   "userId": "1"
  },
@@ -171,11 +139,7 @@
   "price": 53,
   "progress": 0.83,
   "date_last_learned": 13,
-  "card_evaluation": {
-   "hard": 150,
-   "medium": 0,
-   "easy": 10
-  },
+  "card_evaluation": {},
   "id": "9",
   "userId": "1"
  },
@@ -191,11 +155,7 @@
   "price": 16,
   "progress": 50,
   "date_last_learned": 57,
-  "card_evaluation": {
-   "hard": 150,
-   "medium": 0,
-   "easy": 10
-  },
+  "card_evaluation": {},
   "id": "10",
   "userId": "2"
  },
@@ -211,11 +171,7 @@
   "price": 59,
   "progress": 87,
   "date_last_learned": 48,
-  "card_evaluation": {
-   "hard": 150,
-   "medium": 0,
-   "easy": 10
-  },
+  "card_evaluation": {},
   "id": "11",
   "userId": "2"
  },
@@ -231,11 +187,7 @@
   "price": 32,
   "progress": 30,
   "date_last_learned": 39,
-  "card_evaluation": {
-   "hard": 150,
-   "medium": 0,
-   "easy": 10
-  },
+  "card_evaluation": {},
   "id": "12",
   "userId": "2"
  },
@@ -251,11 +203,7 @@
   "price": 65,
   "progress": 36,
   "date_last_learned": 33,
-  "card_evaluation": {
-   "hard": 150,
-   "medium": 0,
-   "easy": 10
-  },
+  "card_evaluation": {},
   "id": "13",
   "userId": "2"
  },
@@ -271,11 +219,7 @@
   "price": 7,
   "progress": 78,
   "date_last_learned": 89,
-  "card_evaluation": {
-   "hard": 150,
-   "medium": 0,
-   "easy": 10
-  },
+  "card_evaluation": {},
   "id": "14",
   "userId": "2"
  },
@@ -291,11 +235,7 @@
   "price": 52,
   "progress": 86,
   "date_last_learned": 7,
-  "card_evaluation": {
-   "hard": 150,
-   "medium": 0,
-   "easy": 10
-  },
+  "card_evaluation": {},
   "id": "15",
   "userId": "2"
  },
@@ -311,11 +251,7 @@
   "price": 2,
   "progress": 50,
   "date_last_learned": 19,
-  "card_evaluation": {
-   "hard": 150,
-   "medium": 0,
-   "easy": 10
-  },
+  "card_evaluation": {},
   "id": "16",
   "userId": "2"
  },
@@ -331,11 +267,7 @@
   "price": 60,
   "progress": 69,
   "date_last_learned": 71,
-  "card_evaluation": {
-   "hard": 150,
-   "medium": 0,
-   "easy": 10
-  },
+  "card_evaluation": {},
   "id": "17",
   "userId": "2"
  },
@@ -351,11 +283,7 @@
   "price": 97,
   "progress": 92,
   "date_last_learned": 26,
-  "card_evaluation": {
-   "hard": 150,
-   "medium": 0,
-   "easy": 10
-  },
+  "card_evaluation": {},
   "id": "18",
   "userId": "2"
  }

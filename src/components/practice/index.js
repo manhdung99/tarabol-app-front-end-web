@@ -3,7 +3,8 @@ import Footer from "../footer";
 import Header from "../header";
 import Menu from "./menu";
 import Body from "./body";
-export default function Practice() {
+import { connect } from "react-redux";
+function Practice({ cards }) {
   return (
     <>
       <Header isLogin={true} isSearch={true} />
@@ -14,7 +15,7 @@ export default function Practice() {
             <Menu />
           </div>
           <div className="sm:w-full md:w-[80%]">
-            <Body />
+            <Body cards={cards} />
           </div>
         </div>
       </div>
@@ -22,3 +23,11 @@ export default function Practice() {
     </>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    cards: state.deckReducer.chapterDetail.cards,
+  };
+};
+
+export default connect(mapStateToProps, null)(Practice);

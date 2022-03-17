@@ -17,7 +17,6 @@ function DeckDetail({ deckDetail, setDeckDetail }) {
   )
     .fill(null)
     .map((_, i) => i);
-
   return (
     <>
       <Header isLogin={true} isSearch={true} />
