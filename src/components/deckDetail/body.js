@@ -19,7 +19,7 @@ export default function Body({ chapters }) {
 
       <table className="w-full">
         <thead>
-          <tr className="font-bold text-[28px]">
+          <tr className="font-bold sm:text-[18px] md:text-[28px]">
             <td>Chapter</td>
             <td>Level</td>
             <td>Cards</td>
@@ -27,7 +27,7 @@ export default function Body({ chapters }) {
         </thead>
         <tbody>
           {chapters.map((item) => (
-            <tr className="text-[28px]">
+            <tr key={item.id} className="sm:text-[16px] md:text-[24px]">
               <td className="pt-[8px]">
                 <Link to="/tarabol-app-front-end-web/learn">{item.title}</Link>
               </td>

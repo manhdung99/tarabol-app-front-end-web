@@ -10,7 +10,7 @@ function Header({ isSearch, isLogin }) {
   const [isShowMenu, setIsShowMenu] = useState(false);
 
   return (
-    <div className="relative">
+    <div className="relative mb-2">
       <div className=" sm:fixed sm:top-0  md:relative sm:h-[88px] sm:bg-[#fff] sm:z-10  flex justify-between  md:py-2 lg:py-4 sm:w-[100%] md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto">
         <div className="absolute top-[50%] translate-y-[-50%] left-[16px] ">
           {isShowMenu ? (
@@ -66,14 +66,14 @@ function Header({ isSearch, isLogin }) {
             <img
               src={elephant}
               alt="Logo"
-              className="relative w-[102px] h-[60px] ml-[-8px] mt-[20px] mb-[8px] cursor-pointer"
+              className="relative w-[102px] h-[60px] md:top-[10px] sm:top-[20px] ml-[-8px]  mb-[8px] cursor-pointer"
             />
           </Link>
           <Link to="/tarabol-app-front-end-web/">
             <img
               src={cap}
               alt="Logo"
-              className="absolute w-[45px] h-[38px] sm:left-[29%] ssm:left-[28%]  md:left-[27px] sm:top-[4px] cursor-pointer"
+              className="absolute w-[45px] h-[38px] sm:left-[24%] ssm:left-[28%]   md:left-[27px] sm:top-[4px] md:top-[-6px] cursor-pointer"
             />
           </Link>
         </div>

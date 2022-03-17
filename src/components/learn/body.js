@@ -24,7 +24,7 @@ export default function Body() {
     }, 500);
   };
   return (
-    <div className="max-w-[87.5%]">
+    <div className="sm:w-full md:max-w-[87.5%]">
       <div
         onClick={() => handleShowAnswer()}
         ref={questionRef}
@@ -51,16 +51,16 @@ export default function Body() {
         <span>5</span>/<span>20</span>
       </p>
       <div className="flex justify-between">
-        <div className="w-[175px] h-[105px] bg-[#C4C4C4] flex items-center justify-center cursor-pointer">
+        <div className="sm:w-[75px] sm:h-[30px] md:w-[100px] md:h-[65px] lg:w-[145px] lg:h-[85px] xl:w-[175px] xl:h-[105px] bg-[#C4C4C4] flex items-center justify-center cursor-pointer">
           Easy
         </div>
-        <div className="w-[175px] h-[105px] bg-[#C4C4C4] flex items-center justify-center cursor-pointer">
+        <div className="sm:w-[75px] sm:h-[30px] md:w-[100px] md:h-[65px] lg:w-[145px] lg:h-[85px] xl:w-[175px] xl:h-[105px] bg-[#C4C4C4] flex items-center justify-center cursor-pointer">
           Medium
         </div>
-        <div className="w-[175px] h-[105px] bg-[#C4C4C4] flex items-center justify-center cursor-pointer">
+        <div className="sm:w-[75px] sm:h-[30px] md:w-[100px] md:h-[65px] lg:w-[145px] lg:h-[85px] xl:w-[175px] xl:h-[105px] bg-[#C4C4C4] flex items-center justify-center cursor-pointer">
           Hard
         </div>
-        <div className="w-[175px] h-[105px] bg-[#C4C4C4] flex items-center justify-center cursor-pointer">
+        <div className="sm:w-[75px] sm:h-[30px] md:w-[100px] md:h-[65px] lg:w-[145px] lg:h-[85px] xl:w-[175px] xl:h-[105px] bg-[#C4C4C4] flex items-center justify-center cursor-pointer">
           Very Hard
         </div>
       </div>
