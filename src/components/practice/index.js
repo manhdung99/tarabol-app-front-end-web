@@ -4,7 +4,7 @@ import Header from "../header";
 import Menu from "./menu";
 import Body from "./body";
 import { connect } from "react-redux";
-function Practice({ cards }) {
+function Practice({ cards, num_practice_card, practice_card }) {
   return (
     <>
       <Header isLogin={true} isSearch={true} />
@@ -15,7 +15,11 @@ function Practice({ cards }) {
             <Menu />
           </div>
           <div className="sm:w-full md:w-[80%]">
-            <Body cards={cards} />
+            <Body
+              cards={cards}
+              num_practice_card={num_practice_card}
+              practice_card={practice_card}
+            />
           </div>
         </div>
       </div>
@@ -25,8 +29,11 @@ function Practice({ cards }) {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state.deckReducer.chapterDetail);
   return {
     cards: state.deckReducer.chapterDetail.cards,
+    num_practice_card: state.deckReducer.chapterDetail.num_practice_cards,
+    practice_card: state.deckReducer.chapterDetail.practiceCards,
   };
 };
 

@@ -8,6 +8,7 @@ function Body({ chapters, setChapterDetail }) {
       id: 1,
       title: "Variable",
       num_cards: 10,
+      num_practice_cards: 10,
       level: 1,
       cards: [
         {
@@ -79,6 +80,68 @@ function Body({ chapters, setChapterDetail }) {
           answer: "Answer 10",
           status: false,
           level: "",
+        },
+      ],
+      practiceCards: [
+        {
+          id: 1,
+          question: "Practice 1",
+          answer: "Answer 1",
+          status: false,
+        },
+        {
+          id: 2,
+          question: "Practice 2",
+          answer: "Answer 2",
+          status: false,
+        },
+        {
+          id: 3,
+          question: "Practice 3",
+          answer: "Answer 3",
+          status: false,
+        },
+        {
+          id: 4,
+          question: "Practice 4",
+          answer: "Answer 4",
+          status: false,
+        },
+        {
+          id: 5,
+          question: "Practice 5",
+          answer: "Answer 5",
+          status: false,
+        },
+        {
+          id: 6,
+          question: "Practice 6",
+          answer: "Answer 6",
+          status: false,
+        },
+        {
+          id: 7,
+          question: "Practice 7",
+          answer: "Answer 7",
+          status: false,
+        },
+        {
+          id: 8,
+          question: "Practice 8",
+          answer: "Answer 8",
+          status: false,
+        },
+        {
+          id: 9,
+          question: "Practice 9",
+          answer: "Answer 9",
+          status: false,
+        },
+        {
+          id: 10,
+          question: "Practice 10",
+          answer: "Answer 10",
+          status: false,
         },
       ],
     };

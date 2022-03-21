@@ -63,7 +63,7 @@ function Body({ numCard, cards, setStatusCard }) {
             ref={answerRef}
             className=" h-[340px] rounded-[8px] border-[1px] border-black cursor-pointer transition duration-1000 ease-in-out "
           >
-            <p className="max-w-[70%] text-[24px] mx-auto mt-[48px]">
+            <p className=" text-center max-w-[70%] text-[24px] mx-auto mt-[48px]">
               {currentCard?.answer}
             </p>
             <p className="text-center text-[red]">Answer</p>

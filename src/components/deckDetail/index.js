@@ -6,7 +6,7 @@ import Menu from "./menu";
 // import Image from "../image/study-background.png";
 import { connect } from "react-redux";
 
-function DeckDetail({ deckDetail, setDeckDetail }) {
+function DeckDetail({ deckDetail }) {
   const yellowStars = new Array(
     Math.floor(deckDetail.rating ? deckDetail.rating : 0)
   )
@@ -146,11 +146,5 @@ const mapStateToProps = (state) => {
     deckDetail: state.deckReducer.deckDetail,
   };
 };
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     setDeckDetail: (value) =>
-//       dispatch({ type: "SET_DETAIL_DECK", payload: value }),
-//   };
-// };
 
 export default connect(mapStateToProps, null)(DeckDetail);
