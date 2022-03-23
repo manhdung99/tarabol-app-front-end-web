@@ -82,7 +82,11 @@ function New({ newsDeck, setNewDeck }) {
       <div className="flex flex-wrap justify-center md:gap-x-[144px] lg:gap-x-[38px] xl:gap-x-[138px]">
         {newsDeck.length > 0 &&
           newsDeck.map((item) => (
-            <Link className="md:mb-8" to="/" key={item.id}>
+            <Link
+              to="/tarabol-app-front-end-web/introduledeck"
+              className="md:mb-8"
+              key={item.id}
+            >
               <Deck
                 title={item.title}
                 level={item.level}

@@ -5,130 +5,7 @@ import Deck from "../deck";
 import { connect } from "react-redux";
 import axios from "axios";
 
-function BodyItem({ marketItems, setMarketItems }) {
-  // useEffect(() => {
-  //   const marketItems = [
-  //     {
-  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a1",
-  //       title: "Deck title",
-  //       level: "Beginner",
-  //       num_chapters: 120,
-  //       num_cards: 1000,
-  //       rating: 4.6,
-  //       reviewers: 10,
-  //       author: "Author name",
-  //       image: ImgDescription,
-  //       price: 1,
-  //       date_last_updated: "2022-02-02",
-  //     },
-  //     {
-  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a2",
-  //       title: "Deck title",
-  //       level: "Beginner",
-  //       num_chapters: 120,
-  //       num_cards: 1000,
-  //       rating: 4.6,
-  //       reviewers: 10,
-  //       author: "Author name",
-  //       image: ImgDescription,
-  //       price: 0,
-  //       date_last_updated: "2022-02-02",
-  //     },
-  //     {
-  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a3",
-  //       title: "Deck title",
-  //       level: "Beginner",
-  //       num_chapters: 120,
-  //       num_cards: 1000,
-  //       rating: 4.8,
-  //       reviewers: 10,
-  //       author: "Author name",
-  //       image: ImgDescription,
-  //       price: 10,
-  //       date_last_updated: "2022-02-02",
-  //     },
-  //     {
-  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a4",
-  //       title: "Deck title",
-  //       level: "Beginner",
-  //       num_chapters: 120,
-  //       num_cards: 1000,
-  //       rating: 4.6,
-  //       reviewers: 10,
-  //       author: "Author name",
-  //       image: ImgDescription,
-  //       price: 0,
-  //       date_last_updated: "2022-02-02",
-  //     },
-  //     {
-  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a5",
-  //       title: "Deck title",
-  //       level: "Beginner",
-  //       num_chapters: 120,
-  //       num_cards: 1000,
-  //       rating: 4.6,
-  //       reviewers: 10,
-  //       author: "Author name",
-  //       image: ImgDescription,
-  //       price: 0,
-  //       date_last_updated: "2022-02-02",
-  //     },
-  //     {
-  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a6",
-  //       title: "Deck title",
-  //       level: "Beginner",
-  //       num_chapters: 120,
-  //       num_cards: 1000,
-  //       rating: 4.8,
-  //       reviewers: 10,
-  //       author: "Author name",
-  //       image: ImgDescription,
-  //       price: 2,
-  //       date_last_updated: "2022-02-02",
-  //     },
-  //     {
-  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a7",
-  //       title: "Deck title",
-  //       level: "Beginner",
-  //       num_chapters: 120,
-  //       num_cards: 1000,
-  //       rating: 4.6,
-  //       reviewers: 10,
-  //       author: "Author name",
-  //       image: ImgDescription,
-  //       price: 3,
-  //       date_last_updated: "2022-02-02",
-  //     },
-  //     {
-  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a8",
-  //       title: "Deck title",
-  //       level: "Beginner",
-  //       num_chapters: 120,
-  //       num_cards: 1000,
-  //       rating: 4.6,
-  //       reviewers: 10,
-  //       author: "Author name",
-  //       image: ImgDescription,
-  //       price: 2,
-  //       date_last_updated: "2022-02-02",
-  //     },
-  //     {
-  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a9",
-  //       title: "Deck title",
-  //       level: "Beginner",
-  //       num_chapters: 120,
-  //       num_cards: 1000,
-  //       rating: 4.8,
-  //       reviewers: 10,
-  //       author: "Author name",
-  //       image: ImgDescription,
-  //       price: 5,
-  //       date_last_updated: "2022-02-02",
-  //     },
-  //   ];
-  //   setMarketItems(marketItems);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+function BodyItem({ marketItems, setMarketItems, setDeckIntrodule }) {
   useEffect(() => {
     const ourRequest = axios.CancelToken.source();
     async function fetchData() {
@@ -153,6 +30,76 @@ function BodyItem({ marketItems, setMarketItems }) {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const handleSetIntroduleChapter = () => {
+    const chapterItems = {
+      title: "Introduction to CS",
+      num_chapters: 120,
+      num_cards: 1000,
+      rating: 4.6,
+      reviewers: 82,
+      author: "author 1",
+      level: "Beginner",
+      description: "Description of deck",
+      image:
+        "https://cdn3.vectorstock.com/i/1000x1000/40/07/flat-linear-study-backgrounds-vector-5144007.jpg",
+      date_last_updated: "date_last_updated 1",
+      price: 0,
+      progress: 0,
+      date_last_learned: 98,
+      card_evaluation: {
+        hard: 150,
+        medium: 0,
+        easy: 10,
+      },
+      chapters: [
+        {
+          title: "Variables",
+          level: 1,
+          num_cards: 10,
+          card_evaluation: {
+            hard: 0,
+            medium: 0,
+            easy: 10,
+          },
+          image:
+            "https://cdn3.vectorstock.com/i/1000x1000/40/07/flat-linear-study-backgrounds-vector-5144007.jpg",
+          id: "1",
+          deckId: "1",
+        },
+        {
+          title: "Conditions",
+          level: 1,
+          num_cards: 10,
+          card_evaluation: {
+            hard: 0,
+            medium: 0,
+            easy: 10,
+          },
+          image:
+            "https://cdn3.vectorstock.com/i/1000x1000/40/07/flat-linear-study-backgrounds-vector-5144007.jpg",
+          id: "2",
+          deckId: "1",
+        },
+        {
+          title: "Object Oriented Programing",
+          level: 1,
+          num_cards: 10,
+          card_evaluation: {
+            hard: 0,
+            medium: 0,
+            easy: 10,
+          },
+          image:
+            "https://cdn3.vectorstock.com/i/1000x1000/40/07/flat-linear-study-backgrounds-vector-5144007.jpg",
+          id: "3",
+          deckId: "1",
+        },
+      ],
+    };
+    setDeckIntrodule(chapterItems);
+  };
+
   return (
     <>
       <span className="flex items-center absolute right-8 ">
@@ -174,7 +121,12 @@ function BodyItem({ marketItems, setMarketItems }) {
       <div className="mt-4 grid md:grid-cols-2 lg:grid-cols-3">
         {marketItems.length > 0 &&
           marketItems.map((item, index) => (
-            <Link className="scale-[0.8]" to="/" key={index}>
+            <Link
+              onClick={handleSetIntroduleChapter}
+              className="scale-[0.8]"
+              to="/tarabol-app-front-end-web/introduledeck"
+              key={index}
+            >
               <Deck
                 title={item.title}
                 level={item.level}
@@ -204,6 +156,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setMarketItems: (value) =>
       dispatch({ type: "SET_MARKET_ITEMS", payload: value }),
+    setDeckIntrodule: (value) =>
+      dispatch({ type: "SET_INTRODULE_DECK", payload: value }),
   };
 };
 

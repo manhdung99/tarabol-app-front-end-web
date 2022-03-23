@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import ImgDescription from "../image/study-background.png";
 import { Link } from "react-router-dom";
 import DeckCard from "../userdeck";
 import { connect } from "react-redux";

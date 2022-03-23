@@ -17,6 +17,8 @@ function Body({ chapters, setChapterDetail }) {
           answer: "Answer 1",
           status: false,
           level: "",
+          practice_question: "Practice 1",
+          practice_answer: " ",
         },
         {
           id: 2,
@@ -24,6 +26,8 @@ function Body({ chapters, setChapterDetail }) {
           answer: "Answer 2",
           status: false,
           level: "",
+          practice_question: "Practice 2",
+          practice_answer: " ",
         },
         {
           id: 3,
@@ -31,6 +35,8 @@ function Body({ chapters, setChapterDetail }) {
           answer: "Answer 3",
           status: false,
           level: "",
+          practice_question: "Practice 3",
+          practice_answer: " ",
         },
         {
           id: 4,
@@ -38,6 +44,8 @@ function Body({ chapters, setChapterDetail }) {
           answer: "Answer 4",
           status: false,
           level: "",
+          practice_question: "Practice 4",
+          practice_answer: " ",
         },
         {
           id: 5,
@@ -45,6 +53,8 @@ function Body({ chapters, setChapterDetail }) {
           answer: "Answer 5",
           status: false,
           level: "",
+          practice_question: "Practice 5",
+          practice_answer: " ",
         },
         {
           id: 6,
@@ -52,6 +62,8 @@ function Body({ chapters, setChapterDetail }) {
           answer: "Answer 6",
           status: false,
           level: "",
+          practice_question: "Practice 6",
+          practice_answer: " ",
         },
         {
           id: 7,
@@ -59,6 +71,8 @@ function Body({ chapters, setChapterDetail }) {
           answer: "Answer 7",
           status: false,
           level: "",
+          practice_question: "Practice 7",
+          practice_answer: " ",
         },
         {
           id: 8,
@@ -66,6 +80,8 @@ function Body({ chapters, setChapterDetail }) {
           answer: "Answer 8",
           status: false,
           level: "",
+          practice_question: "Practice 8",
+          practice_answer: " ",
         },
         {
           id: 9,
@@ -73,6 +89,8 @@ function Body({ chapters, setChapterDetail }) {
           answer: "Answer 9",
           status: false,
           level: "",
+          practice_question: "Practice 9",
+          practice_answer: " ",
         },
         {
           id: 10,
@@ -80,6 +98,8 @@ function Body({ chapters, setChapterDetail }) {
           answer: "Answer 10",
           status: false,
           level: "",
+          practice_question: "Practice 10",
+          practice_answer: " ",
         },
       ],
       practiceCards: [

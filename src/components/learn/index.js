@@ -14,9 +14,7 @@ function Learn({ chapterDetail }) {
           {chapterDetail.title}
         </p>
         <div className="flex flex-wrap">
-          <div className="sm:w-full md:w-[20%]">
-            <Menu />
-          </div>
+          <div className="sm:w-full md:w-[20%]">{/* <Menu /> */}</div>
           <div className="sm:w-full md:w-[80%]">
             <Body
               numCard={chapterDetail.num_cards}

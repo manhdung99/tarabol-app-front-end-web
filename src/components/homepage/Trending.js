@@ -80,7 +80,11 @@ function Trending({ trendingDeck, setTrendingDeck }) {
       <div className="flex flex-wrap justify-center md:gap-x-[144px]  lg:gap-x-[38px] xl:gap-x-[138px] ">
         {trendingDeck.length > 0 &&
           trendingDeck.map((item, index) => (
-            <Link className="md:mb-8" to="/" key={index}>
+            <Link
+              className="md:mb-8"
+              to="/tarabol-app-front-end-web/introduledeck"
+              key={index}
+            >
               <Deck
                 title={item.title}
                 level={item.level}
