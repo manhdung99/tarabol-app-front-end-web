@@ -7,15 +7,18 @@ function Body({ chapters }) {
     <div className="">
       <table className="w-full">
         <thead>
-          <tr className="font-bold sm:text-[18px] md:text-[28px]">
-            <td>Chapter</td>
+          <tr className="font-bold sm:text-[18px] md:text-[24px] lg:text-[28px]">
+            <td className="">Chapter</td>
             <td className="text-center pr-[60px]">Level</td>
             <td className="text-center">Cards</td>
           </tr>
         </thead>
         <tbody>
           {chapters.map((item) => (
-            <tr key={item.id} className="sm:text-[16px] md:text-[24px]">
+            <tr
+              key={item.id}
+              className="sm:text-[16px] md:text-[18px] lg:text-[24px]"
+            >
               <td className="pt-[8px]">
                 <Link to="/tarabol-app-front-end-web/learn">{item.title}</Link>
               </td>

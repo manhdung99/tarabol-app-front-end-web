@@ -35,19 +35,20 @@ function DeckIntrodule({ deckIntrodule }) {
           </p>
           <p className="my-4">{deckIntrodule.description}</p>
           <div className="flex items-center">
-            <p className="text-[16px] mr-[20px]">{deckIntrodule.level}</p>
-            <p className="text-[16px] mr-[20px]">
+            <p className="md:text-[12px] lg:text-[16px] mr-[20px]">
+              {deckIntrodule.level}
+            </p>
+            <p className="md:text-[12px] lg:text-[16px] mr-[20px]">
               {deckIntrodule.num_chapters} Chapters
             </p>
-            <p className="text-[16px] mr-[20px]">
+            <p className="md:text-[12px] lg:text-[16px] mr-[20px]">
               {deckIntrodule.num_cards}+ Cards
             </p>
-            <div className="flex">
+            <div className="flex items-center">
               {yellowStars.map((item) => (
                 <svg
+                  className="md:w-[18px] md:h-[18px] lg:w-[24px] lg:h-[24px]"
                   key={item}
-                  width="25"
-                  height="23"
                   viewBox="0 0 25 23"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -62,9 +63,8 @@ function DeckIntrodule({ deckIntrodule }) {
               ))}
               {grayStars.map((item) => (
                 <svg
+                  className="md:w-[18px] md:h-[18px] lg:w-[24px] lg:h-[24px]"
                   key={item}
-                  width="25"
-                  height="23"
                   viewBox="0 0 25 23"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +77,7 @@ function DeckIntrodule({ deckIntrodule }) {
                   />
                 </svg>
               ))}
-              <p className="text-[14px] text-left ml-[2px] font-semibold pt-1">
+              <p className=" md:text-[12px] lg:text-[14px] text-left ml-[2px] font-semibold ">
                 4.6 (10+)
               </p>
             </div>
@@ -90,10 +90,10 @@ function DeckIntrodule({ deckIntrodule }) {
             </div>
           </div>
         </div>
-        <div className="max-w-[30%]">
+        <div className="w-[30%]">
           <div
             ref={ref}
-            className="  w-[354px] relative shadow-md shadow-[#00000040] rounded-[12px] pt-[43%] mt-[1rem]"
+            className="  lg:w-[300px]  xl:w-[354px] relative shadow-md shadow-[#00000040] rounded-[12px] pt-[43%] mt-[1rem]"
           >
             <div className="bg-[#fff] px-[8px] border-[1px] border-black rounded-b-[8px] border-t-0">
               <div className="flex items-center justify-between pb-[24px] pt-[12px] ">
