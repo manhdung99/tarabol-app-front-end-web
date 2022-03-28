@@ -3,28 +3,32 @@ import { useRef, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 function Body({ numCard, cards, setStatusCard }) {
-  const questionRef = useRef();
-  const answerRef = useRef();
+  // const questionRef = useRef();
+  // const answerRef = useRef();
+  const cardRef = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCard, setCurrentCard] = useState({});
-  const [rot, setRot] = useState(0);
+  // const [rot, setRot] = useState(0);
   // Khi click card question
   const handleShowAnswer = () => {
-    let newRot = rot + 360;
-    setRot(newRot);
-    questionRef.current.style = "transform: rotateX(" + newRot + "deg)";
-    setTimeout(() => {
-      questionRef.current.style.display = "none";
-      answerRef.current.style.display = "block";
-    }, 500);
+    // let newRot = rot + 360;
+    // setRot(newRot);
+    // questionRef.current.style = "transform: rotateX(" + newRot + "deg)";
+    // setTimeout(() => {
+    //   questionRef.current.style.display = "none";
+    //   answerRef.current.style.display = "block";
+    // }, 500);
+
+    cardRef.current.style = "transform: rotateY(180deg)";
   };
   //Khi click card answer
   const handleShowQuestion = () => {
-    answerRef.current.style = "transform: rotateX(" + rot + "deg)";
-    setTimeout(() => {
-      questionRef.current.style.display = "block";
-      answerRef.current.style.display = "none";
-    }, 500);
+    // answerRef.current.style = "transform: rotateX(" + rot + "deg)";
+    // setTimeout(() => {
+    //   questionRef.current.style.display = "block";
+    //   answerRef.current.style.display = "none";
+    // }, 500);
+    cardRef.current.style = "transform: rotateY(0deg)";
   };
   // Set curent Card
   useEffect(() => {
@@ -40,13 +44,12 @@ function Body({ numCard, cards, setStatusCard }) {
     newCards[objIndex] = data;
     setStatusCard(newCards);
     // setCurrentIndex((item) => item + 1);
-    console.log(currentIndex);
-    if (questionRef.current.style.display === "none") {
-      questionRef.current.style.display = "block";
-    }
-    setRot(0);
-    questionRef.current.style = "transform: rotateX(" + 0 + "deg)";
-    answerRef.current.style = "transform: rotateX(" + 0 + "deg)";
+    // if (questionRef.current.style.display === "none") {
+    //   questionRef.current.style.display = "block";
+    // }
+    // setRot(0);
+    // questionRef.current.style = "transform: rotateX(" + 0 + "deg)";
+    // answerRef.current.style = "transform: rotateX(" + 0 + "deg)";
     setCurrentCard(data);
   };
   const handleSubmitAnswer = (status) => {
@@ -65,28 +68,33 @@ function Body({ numCard, cards, setStatusCard }) {
     <>
       {currentIndex < cards.length ? (
         currentCard.status === false ? (
-          <div className="sm:w-full md:max-w-[87.5%]">
+          <div className="  sm:w-full md:max-w-[87.5%] ">
             <div
-              onClick={() => handleShowAnswer()}
-              ref={questionRef}
-              className="  h-[340px] rounded-[8px] border-[1px] border-black cursor-pointer transition duration-1000 ease-in-out "
+              ref={cardRef}
+              className="relative h-[320px] w-full preserve-3d duration-1000"
             >
-              <p className=" text-center max-w-[70%] text-[24px] mx-auto mt-[48px]">
-                {currentCard?.question}
-              </p>
-              <p className="text-center text-[red]">Question</p>
-            </div>
+              <div
+                onClick={() => handleShowAnswer()}
+                // ref={questionRef}
+                className="absolute backface-hidden  w-full h-full rounded-[8px] border-[1px] border-black cursor-pointer transition duration-1000 ease-in-out "
+              >
+                <p className=" text-center max-w-[70%] text-[24px] mx-auto mt-[48px]">
+                  {currentCard?.question}
+                </p>
+                <p className="text-center text-[red]">Question</p>
+              </div>
 
-            <div
-              style={{ display: "none" }}
-              onClick={() => handleShowQuestion()}
-              ref={answerRef}
-              className=" h-[340px] rounded-[8px] border-[1px] border-black cursor-pointer transition duration-1000 ease-in-out "
-            >
-              <p className=" text-center max-w-[70%] text-[24px] mx-auto mt-[48px]">
-                {currentCard?.answer}
-              </p>
-              <p className="text-center text-[red]">Answer</p>
+              <div
+                // style={{ display: "none" }}
+                onClick={() => handleShowQuestion()}
+                // ref={answerRef}
+                className=" preserve-3d absolute backface-hidden w-full h-full my-rotate-y-180 rounded-[8px] border-[1px] border-black cursor-pointer transition duration-1000 ease-in-out "
+              >
+                <p className=" text-center max-w-[70%] text-[24px] mx-auto mt-[48px]">
+                  {currentCard?.answer}
+                </p>
+                <p className="text-center text-[red]">Answer</p>
+              </div>
             </div>
             <p className="text-center text-[red] text-[36px] my-[16px]">
               <span>{currentCard?.id}</span>/<span>{numCard}</span>
