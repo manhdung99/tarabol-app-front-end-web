@@ -33,21 +33,21 @@ function DeckIntrodule({ deckIntrodule }) {
           <p className="md:text-[28px] lg:text-[36px] font-bold ">
             {deckIntrodule.title}
           </p>
-          <p className="my-4">{deckIntrodule.description}</p>
-          <div className="flex items-center">
-            <p className="md:text-[12px] lg:text-[16px] mr-[20px]">
+          <p className="sm:my-1 md:my-4">{deckIntrodule.description}</p>
+          <div className="flex sm:items-start md:items-center sm:flex-col md:flex-row ">
+            <p className="md:text-[12px] lg:text-[16px] md:mr-[20px] sm:mr-0">
               {deckIntrodule.level}
             </p>
-            <p className="md:text-[12px] lg:text-[16px] mr-[20px]">
+            <p className="md:text-[12px] lg:text-[16px] md:mr-[20px] sm:mr-0">
               {deckIntrodule.num_chapters} Chapters
             </p>
-            <p className="md:text-[12px] lg:text-[16px] mr-[20px]">
+            <p className="md:text-[12px] lg:text-[16px] md:mr-[20px] sm:mr-0">
               {deckIntrodule.num_cards}+ Cards
             </p>
             <div className="flex items-center">
               {yellowStars.map((item) => (
                 <svg
-                  className="md:w-[18px] md:h-[18px] lg:w-[24px] lg:h-[24px]"
+                  className="sm:w-[14px] sm:h-[14px] md:w-[18px] md:h-[18px] lg:w-[24px] lg:h-[24px]"
                   key={item}
                   viewBox="0 0 25 23"
                   fill="none"
@@ -63,7 +63,7 @@ function DeckIntrodule({ deckIntrodule }) {
               ))}
               {grayStars.map((item) => (
                 <svg
-                  className="md:w-[18px] md:h-[18px] lg:w-[24px] lg:h-[24px]"
+                  className="sm:w-[14px] sm:h-[14px]  md:w-[18px] md:h-[18px] lg:w-[24px] lg:h-[24px]"
                   key={item}
                   viewBox="0 0 25 23"
                   fill="none"
@@ -77,7 +77,7 @@ function DeckIntrodule({ deckIntrodule }) {
                   />
                 </svg>
               ))}
-              <p className=" md:text-[12px] lg:text-[14px] text-left ml-[2px] font-semibold ">
+              <p className=" md:text-[12px] sm:text-[12px] lg:text-[14px] text-left ml-[2px] font-semibold ">
                 4.6 (10+)
               </p>
             </div>
@@ -90,13 +90,13 @@ function DeckIntrodule({ deckIntrodule }) {
             </div>
           </div>
         </div>
-        <div className="w-[30%]">
+        <div className="sm:w-[40%] md:w-[30%] relative">
           <div
             ref={ref}
-            className="  lg:w-[300px]  xl:w-[354px] relative shadow-md shadow-[#00000040] rounded-[12px] pt-[43%] mt-[1rem]"
+            className=" absolute sm:w-full lg:w-[300px] xl:w-[354px]  shadow-md shadow-[#00000040] rounded-[12px] pt-[43%] mt-[1rem]"
           >
             <div className="bg-[#fff] px-[8px] border-[1px] border-black rounded-b-[8px] border-t-0">
-              <div className="flex items-center justify-between pb-[24px] pt-[12px] ">
+              <div className="flex items-center justify-between md:pb-[12px] lg:pb-[24px] pt-[12px] ">
                 <div>
                   {deckIntrodule.price !== undefined ? (
                     deckIntrodule.price > 0 ? (
@@ -104,7 +104,7 @@ function DeckIntrodule({ deckIntrodule }) {
                         {deckIntrodule.price}$
                       </p>
                     ) : (
-                      <p className="text-right font-bold text-[20px] mb-1">
+                      <p className="text-right font-bold sm:text-[14px] md:text-[20px] mb-1">
                         Free
                       </p>
                     )
@@ -113,8 +113,7 @@ function DeckIntrodule({ deckIntrodule }) {
                 <div className="flex items-center">
                   <span>
                     <svg
-                      width="24"
-                      height="24"
+                      className="sm:w-[16px] sm:h-[16px] md:w-[24px] md:h-[24px]"
                       viewBox="0 0 32 32"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -125,11 +124,11 @@ function DeckIntrodule({ deckIntrodule }) {
                       />
                     </svg>
                   </span>
-                  <p className="ml-[4px]">30 Learned</p>
+                  <p className="ml-[4px] sm:text-[12px] ">30 Learned</p>
                 </div>
               </div>
-              <div className="my-8 flex items-center justify-center">
-                <button className="bg-[#0079bf] hover:bg-[#026aa7] text-white text-[16px] py-[5px] px-[30px] rounded-[2px] ">
+              <div className="sm:py-4 md:my-6 lg:my-8 flex items-center justify-center">
+                <button className="bg-[#0079bf] hover:bg-[#026aa7] text-white text-[16px] sm:py-[3px] sm:px-[20px]  md:py-[5px] md:px-[30px] rounded-[2px] ">
                   Add
                 </button>
               </div>

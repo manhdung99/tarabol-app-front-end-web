@@ -19,11 +19,15 @@ function Body({ chapters }) {
               key={item.id}
               className="sm:text-[16px] md:text-[18px] lg:text-[24px]"
             >
-              <td className="pt-[8px]">
+              <td className="pt-[8px] sm:text-[12px] md:text-[16px]">
                 <Link to="/tarabol-app-front-end-web/learn">{item.title}</Link>
               </td>
-              <td className="pt-[8px] text-center pr-[60px]">{item.level}</td>
-              <td className="pt-[8px] text-center">{item.num_cards} Cards</td>
+              <td className="pt-[8px] sm:text-[12px] md:text-[16px] text-center pr-[60px]">
+                {item.level}
+              </td>
+              <td className="pt-[8px] sm:text-[12px] md:text-[16px] text-center">
+                {item.num_cards} Cards
+              </td>
             </tr>
           ))}
         </tbody>

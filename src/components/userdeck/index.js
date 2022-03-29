@@ -80,7 +80,7 @@ function UserDeck({
               </p>
             </div>
             <span className="flex text-[#9E9E9E] text-[10px] pt-1">
-              Last learn: <p>{date_last_learned}</p>
+              Last learn : {date_last_learned}
             </span>
           </div>
           <div className="w-[30%]">

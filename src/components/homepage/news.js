@@ -6,49 +6,75 @@ import Trending from "./Trending";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-function New({ newsDeck, setNewDeck }) {
-  // useEffect(() => {
-  //   const newItems = [
-  //     {
-  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a1",
-  //       title: "Deck title",
-  //       level: "Beginner",
-  //       num_chapters: 120,
-  //       num_cards: 1000,
-  //       rating: 4.6,
-  //       reviewers: 10,
-  //       author: "Author name",
-  //       image: ImgDescription,
-  //       date_last_updated: "2022-02-02",
-  //     },
-  //     {
-  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a2",
-  //       title: "Deck title",
-  //       level: "Beginner",
-  //       num_chapters: 120,
-  //       num_cards: 1000,
-  //       rating: 4.6,
-  //       reviewers: 10,
-  //       author: "Author name",
-  //       image: ImgDescription,
-  //       date_last_updated: "2022-02-02",
-  //     },
-  //     {
-  //       id: "4adb602a-3b12-4b0e-9c10-57a50b4894a3",
-  //       title: "Deck title",
-  //       level: "Beginner",
-  //       num_chapters: 120,
-  //       num_cards: 1000,
-  //       rating: 4.8,
-  //       reviewers: 10,
-  //       author: "Author name",
-  //       image: ImgDescription,
-  //       date_last_updated: "2022-02-02",
-  //     },
-  //   ];
-  //   setNewDeck(newItems);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+function New({ newsDeck, setNewDeck, setDeckIntrodule }) {
+  const handleSetIntroduleChapter = () => {
+    const chapterItems = {
+      title: "Introduction to CS",
+      num_chapters: 120,
+      num_cards: 1000,
+      rating: 4.6,
+      reviewers: 82,
+      author: "author 1",
+      level: "Beginner",
+      description: "Description of deck",
+      image:
+        "https://cdn3.vectorstock.com/i/1000x1000/40/07/flat-linear-study-backgrounds-vector-5144007.jpg",
+      date_last_updated: "date_last_updated 1",
+      price: 0,
+      progress: 0,
+      date_last_learned: 98,
+      card_evaluation: {
+        hard: 150,
+        medium: 0,
+        easy: 10,
+      },
+      chapters: [
+        {
+          title: "Variables",
+          level: 1,
+          num_cards: 10,
+          card_evaluation: {
+            hard: 0,
+            medium: 0,
+            easy: 10,
+          },
+          image:
+            "https://cdn3.vectorstock.com/i/1000x1000/40/07/flat-linear-study-backgrounds-vector-5144007.jpg",
+          id: "1",
+          deckId: "1",
+        },
+        {
+          title: "Conditions",
+          level: 1,
+          num_cards: 10,
+          card_evaluation: {
+            hard: 0,
+            medium: 0,
+            easy: 10,
+          },
+          image:
+            "https://cdn3.vectorstock.com/i/1000x1000/40/07/flat-linear-study-backgrounds-vector-5144007.jpg",
+          id: "2",
+          deckId: "1",
+        },
+        {
+          title: "Object Oriented Programing",
+          level: 1,
+          num_cards: 10,
+          card_evaluation: {
+            hard: 0,
+            medium: 0,
+            easy: 10,
+          },
+          image:
+            "https://cdn3.vectorstock.com/i/1000x1000/40/07/flat-linear-study-backgrounds-vector-5144007.jpg",
+          id: "3",
+          deckId: "1",
+        },
+      ],
+    };
+    setDeckIntrodule(chapterItems);
+  };
 
   useEffect(() => {
     const ourRequest = axios.CancelToken.source();
@@ -83,6 +109,7 @@ function New({ newsDeck, setNewDeck }) {
         {newsDeck.length > 0 &&
           newsDeck.map((item) => (
             <Link
+              onClick={handleSetIntroduleChapter}
               to="/tarabol-app-front-end-web/introduledeck"
               className="md:mb-8"
               key={item.id}
@@ -119,6 +146,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setNewDeck: (value) => dispatch({ type: "SET_NEWS_DECK", payload: value }),
+    setDeckIntrodule: (value) =>
+      dispatch({ type: "SET_INTRODULE_DECK", payload: value }),
   };
 };
 

@@ -3,15 +3,18 @@ import { Link } from "react-router-dom";
 
 export default function Menubar() {
   const searchItems = [
-    { name: "Popular", link: "/" },
-    { name: "Latest", link: "/" },
-    { name: "Trending", link: "/" },
+    { name: "Popular", link: "/tarabol-app-front-end-web/marketplace" },
+    { name: "Latest", link: "/tarabol-app-front-end-web/marketplace" },
+    { name: "Trending", link: "/tarabol-app-front-end-web/marketplace" },
   ];
   const topicItems = [
-    { name: "Medical", link: "/" },
-    { name: "Historical", link: "/" },
-    { name: "Geography", link: "/" },
-    { name: "Information Technology", link: "/" },
+    { name: "Medical", link: "/tarabol-app-front-end-web/marketplace" },
+    { name: "Historical", link: "/tarabol-app-front-end-web/marketplace" },
+    { name: "Geography", link: "/tarabol-app-front-end-web/marketplace" },
+    {
+      name: "Information Technology",
+      link: "/tarabol-app-front-end-web/marketplace",
+    },
   ];
   return (
     <div>
