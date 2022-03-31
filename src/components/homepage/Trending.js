@@ -107,7 +107,7 @@ function Trending({ trendingDeck, setTrendingDeck, setDeckIntrodule }) {
         {trendingDeck.length > 0 &&
           trendingDeck.map((item, index) => (
             <Link
-              onClick={setDeckIntrodule}
+              onClick={handleSetIntroduleChapter}
               className="md:mb-8"
               to="/tarabol-app-front-end-web/introduledeck"
               key={index}

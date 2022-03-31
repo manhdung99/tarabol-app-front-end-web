@@ -13,6 +13,7 @@ export default function Body({ cards, num_practice_card, practice_card }) {
     } else {
       setIsPractice(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

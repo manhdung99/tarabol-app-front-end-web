@@ -1,7 +1,6 @@
 import React from "react";
 import Footer from "../footer";
 import Header from "../header";
-import Menu from "./menu";
 import Body from "./body";
 import { connect } from "react-redux";
 function Learn({ chapterDetail }) {

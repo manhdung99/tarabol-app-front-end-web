@@ -2,8 +2,6 @@ import React, { useEffect, useRef } from "react";
 import Footer from "../footer";
 import Header from "../header";
 import Body from "./body";
-import Menu from "./menu";
-// import Image from "../image/study-background.png";
 import { connect } from "react-redux";
 
 function DeckIntrodule({ deckIntrodule }) {

@@ -50,6 +50,7 @@ function Body({ numCard, cards, setStatusCard }) {
     // setRot(0);
     // questionRef.current.style = "transform: rotateX(" + 0 + "deg)";
     // answerRef.current.style = "transform: rotateX(" + 0 + "deg)";
+    cardRef.current.style = "transform: rotateY(0deg)";
     setCurrentCard(data);
   };
   const handleSubmitAnswer = (status) => {
@@ -71,7 +72,7 @@ function Body({ numCard, cards, setStatusCard }) {
           <div className="  sm:w-full md:max-w-[87.5%] ">
             <div
               ref={cardRef}
-              className="relative h-[320px] w-full preserve-3d duration-1000"
+              className="relative h-[340px] w-full preserve-3d duration-1000"
             >
               <div
                 onClick={() => handleShowAnswer()}
