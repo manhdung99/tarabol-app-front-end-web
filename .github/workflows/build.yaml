@@ -1,4 +1,4 @@
-name: tarabol-app-front-end-web
+name: tarabol-app
 on:
   push:
     branches: [dung_branch]
@@ -34,7 +34,7 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tarabol-app-front-end-web
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tarabol-app
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
