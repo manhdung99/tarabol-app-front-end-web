@@ -1,42 +1,25 @@
-name: tarabol-app
+name: Development workflow
+
 on:
   push:
-    branches: [dung_branch]
+    branches:
+      - dung_branch
 jobs:
-  docker:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Development Code
         uses: actions/checkout@v2
-
-      - name: Login Docker Hub
-        uses: docker/login-action@v1
+      - name: Use Node.js 17.x
+        uses: actions/setup-node@v1
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
-
-      - name: Setup Docker Buildx
-        uses: docker/setup-buildx-action@v1
-        id: buildx
-
-      - name: Cache Docker Image Layers
-        uses: actions/cache@v2
+          node-version: 17.x
+      - run: npm install
+      - run: npm run build --if-present
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
-      - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
-        id: docker_build
-        with:
-          context: ./
-          file: ./Dockerfile
-          builder: ${{ steps.buildx.outputs.name }}
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tarabol-app
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache
-
-      - name: Verify
-        run: echo ${{ steps.docker_build.outputs.digest }}
+          args: deploy --dir=build --prod
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: "tarabol-app-front-end-web"
+          heroku_email: "manhdung1999@gmail.com"

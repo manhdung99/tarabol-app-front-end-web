@@ -1,7 +1,5 @@
 import React from "react";
-// import User from "../header/User";
 import { useRef, useEffect } from "react";
-// import Image from "../image/image.png";
 function Deck({
   title,
   level,
