@@ -1,11 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // import ImgDescription from "../image/study-background.png";
 import { Link } from "react-router-dom";
 import Deck from "../deck";
 import { connect } from "react-redux";
 import axios from "axios";
 
-function BodyItem({ marketItems, setMarketItems, setDeckIntrodule }) {
+function BodyItem({
+  marketItems,
+  setMarketItems,
+  setDeckIntrodule,
+  setIsSortName,
+  setIsSortPrice,
+  sortSelected,
+  setSortSelected,
+}) {
+  const [isOpenSortOption, setIsOpenSortOption] = useState(false);
+
   useEffect(() => {
     const ourRequest = axios.CancelToken.source();
     async function fetchData() {
@@ -99,11 +109,25 @@ function BodyItem({ marketItems, setMarketItems, setDeckIntrodule }) {
     };
     setDeckIntrodule(chapterItems);
   };
-
+  const handleSortByName = (data) => {
+    setSortSelected(data);
+    setIsSortPrice(false);
+    setIsSortName(true);
+  };
+  const handleSortByPrice = (data) => {
+    setSortSelected(data);
+    setIsSortName(false);
+    setIsSortPrice(true);
+  };
   return (
     <>
-      <span className="flex items-center absolute right-8 ">
-        <p className="font-bold text-[18px] ">Sort by</p>
+      <span
+        onClick={() => setIsOpenSortOption((item) => !item)}
+        className="flex items-center absolute right-0 px-4  cursor-pointer border-[1px] rounded-[2px] "
+      >
+        <p className="font-bold text-[18px] ">
+          {sortSelected !== "" ? sortSelected : "Sort by"}
+        </p>
         <svg
           className="mt-[1px] ml-[4px]"
           width="12"
@@ -117,6 +141,24 @@ function BodyItem({ marketItems, setMarketItems, setDeckIntrodule }) {
             fill="#000"
           />
         </svg>
+        {isOpenSortOption && (
+          <div className="absolute bg-white w-[100%] top-[30px] left-0 border-[1px] rounded-[2px] shadow-md z-10">
+            <ul>
+              <li
+                onClick={() => handleSortByName("Sort By Name")}
+                className="py-1 text-center border-b-[1px] hover:bg-[#f8f9fa] cursor-pointer "
+              >
+                Sort by name
+              </li>
+              <li
+                onClick={() => handleSortByPrice("Sort By Price")}
+                className="py-1 text-center hover:bg-[#f8f9fa] cursor-pointer"
+              >
+                Sort by price
+              </li>
+            </ul>
+          </div>
+        )}
       </span>
       <div className="mt-4 grid md:grid-cols-2 lg:grid-cols-3">
         {marketItems.length > 0 &&

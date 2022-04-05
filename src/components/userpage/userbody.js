@@ -1,10 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import DeckCard from "../userdeck";
 import { connect } from "react-redux";
 import axios from "axios";
 
-function UserBody({ userDecks, setUserDeck, setDeckDetail }) {
+function UserBody({
+  userDecks,
+  setUserDeck,
+  setDeckDetail,
+  sortSelected,
+  setSortSelected,
+  isSortName,
+  setIsSortName,
+  isSortProcess,
+  setIsSortProcess,
+}) {
+  const [isOpenSortOption, setIsOpenSortOption] = useState(false);
+
   useEffect(() => {
     const ourRequest = axios.CancelToken.source();
     async function fetchData() {
@@ -29,7 +41,25 @@ function UserBody({ userDecks, setUserDeck, setDeckDetail }) {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  // console.log(userDecks);
+
+  useEffect(() => {
+    if (isSortProcess) {
+      let newData = [...userDecks];
+      newData = newData.sort((a, b) => b.progress - a.progress);
+      setUserDeck(newData);
+    }
+    if (isSortName) {
+      let newData = [...userDecks];
+      newData = newData.sort((a, b) => {
+        if (a.title < b.title) return -1;
+        if (a.title > b.title) return 1;
+        return 0;
+      });
+      setUserDeck(newData);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSortName, isSortProcess]);
+
   const handleSetDetailDeck = (id) => {
     const ourRequest = axios.CancelToken.source();
     async function fetchData() {
@@ -50,10 +80,27 @@ function UserBody({ userDecks, setUserDeck, setDeckDetail }) {
     }
     fetchData();
   };
+
+  const handleSortByName = (data) => {
+    setIsSortName(true);
+    setIsSortProcess(false);
+    setSortSelected(data);
+  };
+  const handleSortByProcess = (data) => {
+    setIsSortName(false);
+    setIsSortProcess(true);
+    setSortSelected(data);
+  };
+
   return (
     <>
-      <span className="flex items-center absolute right-0 cursor-pointer ">
-        <p className="font-bold text-[18px]  ">Sort by</p>
+      <span
+        onClick={() => setIsOpenSortOption((item) => !item)}
+        className="flex items-center absolute right-0 px-6  cursor-pointer border-[1px] rounded-[2px] "
+      >
+        <p className="font-bold text-[18px] ">
+          {sortSelected !== "" ? sortSelected : "Sort by"}
+        </p>
         <svg
           className="mt-[1px] ml-[4px]"
           width="12"
@@ -67,6 +114,24 @@ function UserBody({ userDecks, setUserDeck, setDeckDetail }) {
             fill="#000"
           />
         </svg>
+        {isOpenSortOption && (
+          <div className="absolute bg-white w-[100%] top-[30px] left-0 border-[1px] rounded-[2px] shadow-md z-10">
+            <ul>
+              <li
+                onClick={() => handleSortByName("Sort By Name")}
+                className="py-1 text-center border-b-[1px] hover:bg-[#f8f9fa] cursor-pointer "
+              >
+                Sort by name
+              </li>
+              <li
+                onClick={() => handleSortByProcess("Sort By Process")}
+                className="py-1 text-center hover:bg-[#f8f9fa] cursor-pointer"
+              >
+                Sort by process
+              </li>
+            </ul>
+          </div>
+        )}
       </span>
       <div className="flex sm:justify-center md:justify-between mt-16  flex-wrap">
         {userDecks.length > 0 &&
@@ -75,7 +140,7 @@ function UserBody({ userDecks, setUserDeck, setDeckDetail }) {
               className=""
               to="/tarabol-app-front-end-web/detaildeck"
               key={item.id}
-              onClick={(e) => handleSetDetailDeck(item.id)}
+              onClick={() => handleSetDetailDeck(item.id)}
             >
               <DeckCard
                 title={item.title}
