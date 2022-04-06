@@ -18,7 +18,7 @@ function Market() {
             setSortSelected={setSortSelected}
           />
         </div>
-        <div className="sm:w-[100%] md:w-[80%] relative">
+        <div className="sm:w-[100%] md:w-[80%] relative mt-4">
           <BodyItem
             sortSelected={sortSelected}
             setSortSelected={setSortSelected}

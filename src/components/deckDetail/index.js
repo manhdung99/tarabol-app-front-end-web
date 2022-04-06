@@ -3,7 +3,6 @@ import Footer from "../footer";
 import Header from "../header";
 import Body from "./body";
 import Menu from "./menu";
-// import Image from "../image/study-background.png";
 import { connect } from "react-redux";
 
 function DeckDetail({ deckDetail }) {
@@ -129,7 +128,7 @@ function DeckDetail({ deckDetail }) {
         </div>
         <div className="flex flex-wrap">
           <div className=" sm:w-full md:w-[20%]">
-            <Menu />
+            <Menu id={deckDetail.id} />
           </div>
           <div className="sm:w-full md:w-[80%]">
             <Body chapters={deckDetail?.chapter ? deckDetail.chapter : []} />

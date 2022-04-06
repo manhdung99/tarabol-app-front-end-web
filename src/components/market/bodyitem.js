@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 // import ImgDescription from "../image/study-background.png";
 import { Link } from "react-router-dom";
 import Deck from "../deck";
@@ -15,7 +15,7 @@ function BodyItem({
   setSortSelected,
 }) {
   const [isOpenSortOption, setIsOpenSortOption] = useState(false);
-
+  const sortSpanRef = useRef();
   useEffect(() => {
     const ourRequest = axios.CancelToken.source();
     async function fetchData() {
@@ -41,6 +41,19 @@ function BodyItem({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  //When click outside sort form
+  useEffect(() => {
+    document.addEventListener("click", handleCloseSortForm, true);
+    return () => {
+      document.removeEventListener("click", handleCloseSortForm, true);
+    };
+  });
+  //Handle click outside sort form
+  const handleCloseSortForm = (e) => {
+    if (sortSpanRef.current && !sortSpanRef.current.contains(e.target)) {
+      return setIsOpenSortOption(false);
+    }
+  };
   const handleSetIntroduleChapter = () => {
     const chapterItems = {
       title: "Introduction to CS",
@@ -122,8 +135,9 @@ function BodyItem({
   return (
     <>
       <span
+        ref={sortSpanRef}
         onClick={() => setIsOpenSortOption((item) => !item)}
-        className="flex items-center absolute right-0 px-4  cursor-pointer border-[1px] rounded-[2px] "
+        className="flex items-center absolute right-0 px-6  cursor-pointer border-[1px] rounded-[2px] mr-12"
       >
         <p className="font-bold text-[18px] ">
           {sortSelected !== "" ? sortSelected : "Sort by"}

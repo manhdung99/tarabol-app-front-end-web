@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 function User(props) {
+  const logoutRef = useRef(null);
   const navigate = useNavigate();
   const [showUserItem, setShowUserItem] = useState(false);
   const handleLogout = () => {
@@ -11,9 +12,22 @@ function User(props) {
     navigate("/tarabol-app-front-end-web/");
   };
 
+  useEffect(() => {
+    document.addEventListener("click", handleCloseShowUserItemForm, true);
+    return () => {
+      document.removeEventListener("click", handleCloseShowUserItemForm, true);
+    };
+  });
+  const handleCloseShowUserItemForm = (e) => {
+    if (logoutRef.current && !logoutRef.current.contains(e.target)) {
+      return setShowUserItem(false);
+    }
+  };
+
   return (
     <div
-      onClick={() => setShowUserItem((item) => !item)}
+      ref={logoutRef}
+      onClick={() => setShowUserItem(!showUserItem)}
       className="flex relative items-center mr-[1rem] cursor-pointer  "
     >
       <img

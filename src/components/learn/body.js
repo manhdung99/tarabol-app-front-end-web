@@ -2,13 +2,17 @@ import React from "react";
 import { useRef, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-function Body({ numCard, cards, setStatusCard }) {
+function Body({
+  numCard,
+  cards,
+  setStatusCard,
+  currentIndex,
+  setCurrentIndex,
+}) {
   // const questionRef = useRef();
   // const answerRef = useRef();
   const cardRef = useRef();
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCard, setCurrentCard] = useState({});
-  // const [rot, setRot] = useState(0);
   // Khi click card question
   const handleShowAnswer = () => {
     // let newRot = rot + 360;
@@ -189,6 +193,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setStatusCard: (value) =>
       dispatch({ type: "SET_STATUS_CARD", payload: value }),
+    setLearnIndex: (value) =>
+      dispatch({ type: "SET_LEARNING_INDEX", payload: value }),
   };
 };
 

@@ -170,7 +170,7 @@ function Body({ chapters, setChapterDetail }) {
 
   return (
     <div className="w-[75%]">
-      <table className="w-full">
+      <table className="w-full relative">
         <thead>
           <tr className="font-bold sm:text-[18px] md:text-[28px]">
             <td>Chapter</td>
@@ -179,18 +179,28 @@ function Body({ chapters, setChapterDetail }) {
           </tr>
         </thead>
         <tbody>
-          {chapters.map((item) => (
-            <tr key={item.id} className="sm:text-[16px] md:text-[24px]">
-              <td
-                onClick={(e) => handleSetDetailChapter()}
-                className="pt-[8px]"
-              >
-                <Link to="/tarabol-app-front-end-web/learn">{item.title}</Link>
+          {chapters.length > 0 ? (
+            chapters.map((item) => (
+              <tr key={item.id} className="sm:text-[16px] md:text-[24px]">
+                <td
+                  onClick={(e) => handleSetDetailChapter()}
+                  className="pt-[8px]"
+                >
+                  <Link to="/tarabol-app-front-end-web/learn">
+                    {item.title}
+                  </Link>
+                </td>
+                <td className="pt-[8px] text-center">{item.level}</td>
+                <td className="pt-[8px] text-center">{item.num_cards} Cards</td>
+              </tr>
+            ))
+          ) : (
+            <tr className="flex justify-center w-full absolute top-[48px] ">
+              <td className="text-[20px] font-bold text-[red]">
+                Not have Chapter
               </td>
-              <td className="pt-[8px] text-center">{item.level}</td>
-              <td className="pt-[8px] text-center">{item.num_cards} Cards</td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
     </div>

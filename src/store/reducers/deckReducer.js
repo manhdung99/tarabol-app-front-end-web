@@ -6,6 +6,7 @@ const initState = {
   deckDetail: {},
   deckIntrodule: {},
   chapterDetail: {},
+  learningIndex: 0,
 };
 
 const deckReducer = (state = initState, action) => {
@@ -50,6 +51,11 @@ const deckReducer = (state = initState, action) => {
       return {
         ...state,
         chapterDetail: newData,
+      };
+    case "SET_LEARNING_INDEX":
+      return {
+        ...state,
+        learningIndex: action.payload,
       };
     default:
       return state;
