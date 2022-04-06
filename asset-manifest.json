@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tarabol-app-front-end-web/static/css/main.f4ece5f3.css",
-    "main.js": "/tarabol-app-front-end-web/static/js/main.8b4e1269.js",
+    "main.js": "/tarabol-app-front-end-web/static/js/main.c3c36e87.js",
     "static/js/787.0afdeab4.chunk.js": "/tarabol-app-front-end-web/static/js/787.0afdeab4.chunk.js",
     "static/media/image.png": "/tarabol-app-front-end-web/static/media/image.ced1cdc744fa949c65b5.png",
     "static/media/learnfast.png": "/tarabol-app-front-end-web/static/media/learnfast.ec6be510c82fbf79303c.png",
@@ -11,11 +11,11 @@
     "static/media/cap.svg": "/tarabol-app-front-end-web/static/media/cap.e1432383d6ec739c0f55d0fab028f53a.svg",
     "index.html": "/tarabol-app-front-end-web/index.html",
     "main.f4ece5f3.css.map": "/tarabol-app-front-end-web/static/css/main.f4ece5f3.css.map",
-    "main.8b4e1269.js.map": "/tarabol-app-front-end-web/static/js/main.8b4e1269.js.map",
+    "main.c3c36e87.js.map": "/tarabol-app-front-end-web/static/js/main.c3c36e87.js.map",
     "787.0afdeab4.chunk.js.map": "/tarabol-app-front-end-web/static/js/787.0afdeab4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f4ece5f3.css",
-    "static/js/main.8b4e1269.js"
+    "static/js/main.c3c36e87.js"
   ]
 }
