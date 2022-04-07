@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
-const Login = ({ users, setLoginStatus }) => {
+import { initData } from "../../initData/initData";
+const Login = ({ users, setLoginStatus, setUserDeck }) => {
   const navigate = useNavigate();
   const [error, setError] = useState(false);
   const [account, setAccount] = useState({
@@ -15,6 +16,8 @@ const Login = ({ users, setLoginStatus }) => {
       if (users[i].username === account.username) {
         if (users[i].password === account.password) {
           setLoginStatus(true);
+          const items = initData.filter((item) => item.userId === "1");
+          setUserDeck(items);
           navigate("/tarabol-app-front-end-web/homepage");
         } else {
           setError(true);
@@ -26,7 +29,6 @@ const Login = ({ users, setLoginStatus }) => {
       }
     }
   };
-
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <p>UserName:DungNM25@gmail.com</p>
@@ -241,6 +243,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setLoginStatus: (value) =>
       dispatch({ type: "SET_LOGIN_STATUS", payload: value }),
+    setUserDeck: (value) =>
+      dispatch({ type: "SET_USER_DECKS", payload: value }),
   };
 };
 

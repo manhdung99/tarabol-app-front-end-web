@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { connect } from "react-redux";
+import { initData } from "../../initData/initData";
 
 function UserMenuBar({ setUserDeck, setSortSelected }) {
   const searchItems = [
@@ -16,61 +17,83 @@ function UserMenuBar({ setUserDeck, setSortSelected }) {
   ];
 
   const handleFilterDecks = (data) => {
-    const ourRequest = axios.CancelToken.source();
+    // const ourRequest = axios.CancelToken.source();
     async function fetchData() {
-      try {
-        const response = await axios.get(
-          "https://622aaf4814ccb950d22288dd.mockapi.io/api/v1/users/1/decks",
-          {
-            cancelToken: ourRequest.token, // <-- 2nd step
-          }
-        );
-        const items = response && response.data ? response.data : [];
-        let newData;
-        switch (data) {
-          case "All":
-            newData = [...items];
-            break;
-          case "Recently learn":
-            newData = items.filter((item) => item.progress < 1);
-            break;
-          case "Finished":
-            newData = items.filter((item) => item.progress === 1);
-            break;
-          default:
-        }
-        setUserDeck(newData);
-        setSortSelected("");
-      } catch (error) {
-        if (axios.isCancel(error)) {
-          console.log("Request Cancel :", error.message);
-        }
+      // try {
+      //   const response = await axios.get(
+      //     "https://622aaf4814ccb950d22288dd.mockapi.io/api/v1/users/1/decks",
+      //     {
+      //       cancelToken: ourRequest.token, // <-- 2nd step
+      //     }
+      //   );
+      //   const items = response && response.data ? response.data : [];
+      //   let newData;
+      //   switch (data) {
+      //     case "All":
+      //       newData = [...items];
+      //       break;
+      //     case "Recently learn":
+      //       newData = items.filter((item) => item.progress < 1);
+      //       break;
+      //     case "Finished":
+      //       newData = items.filter((item) => item.progress === 1);
+      //       break;
+      //     default:
+      //   }
+      //   setUserDeck(newData);
+      //   setSortSelected("");
+      // } catch (error) {
+      //   if (axios.isCancel(error)) {
+      //     console.log("Request Cancel :", error.message);
+      //   }
+      // }
+      const items = initData.filter((item) => item.userId === "1");
+      let newData;
+      switch (data) {
+        case "All":
+          newData = [...items];
+          break;
+        case "Recently learn":
+          newData = items.filter((item) => item.progress < 1);
+          break;
+        case "Finished":
+          newData = items.filter((item) => item.progress === 1);
+          break;
+        default:
       }
+      setUserDeck(newData);
+      setSortSelected("");
     }
     fetchData();
   };
 
   const handleFilterDecksWithCategory = (data) => {
-    const ourRequest = axios.CancelToken.source();
+    // const ourRequest = axios.CancelToken.source();
     async function fetchData() {
-      try {
-        const response = await axios.get(
-          "https://622aaf4814ccb950d22288dd.mockapi.io/api/v1/users/1/decks",
-          {
-            cancelToken: ourRequest.token, // <-- 2nd step
-          }
-        );
-        const items = response && response.data ? response.data : [];
-        const newItems = items.filter(
-          (item) => item.type.toLowerCase() === data.toLowerCase()
-        );
-        setUserDeck(newItems);
-        setSortSelected("");
-      } catch (error) {
-        if (axios.isCancel(error)) {
-          console.log("Request Cancel :", error.message);
-        }
-      }
+      // try {
+      //   const response = await axios.get(
+      //     "https://622aaf4814ccb950d22288dd.mockapi.io/api/v1/users/1/decks",
+      //     {
+      //       cancelToken: ourRequest.token, // <-- 2nd step
+      //     }
+      //   );
+      //   const items = response && response.data ? response.data : [];
+      //   const newItems = items.filter(
+      //     (item) => item.type.toLowerCase() === data.toLowerCase()
+      //   );
+      //   setUserDeck(newItems);
+      //   setSortSelected("");
+      // } catch (error) {
+      //   if (axios.isCancel(error)) {
+      //     console.log("Request Cancel :", error.message);
+      //   }
+      // }
+      const items = initData.filter((item) => item.userId === "1");
+      const newItems = items.filter(
+        (item) => item.type.toLowerCase() === data.toLowerCase()
+      );
+      setUserDeck(newItems);
+      setSortSelected("");
     }
     fetchData();
   };

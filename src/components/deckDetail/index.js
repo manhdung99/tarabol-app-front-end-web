@@ -1,11 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../footer";
 import Header from "../header";
 import Body from "./body";
 import Menu from "./menu";
 import { connect } from "react-redux";
 
-function DeckDetail({ deckDetail }) {
+function DeckDetail({ deckDetail, userDecks, setUserDeck, setDeckDetail }) {
+  // console.log(deckDetail);
+  // console.log(
+  //   deckDetail.chapter.reduce((prev, current) => prev + current.progress, 0)
+  // );
+
+  useEffect(() => {
+    let newProgress = deckDetail.chapter.reduce(
+      (prev, current) => prev + current.progress,
+      0
+    );
+    let newData = {
+      ...deckDetail,
+      progress: Math.round((newProgress / 3) * 100) / 100,
+    };
+    console.log(newData);
+    setDeckDetail(newData);
+    let newDecks = [...userDecks];
+    let deckIndex = newDecks.findIndex(
+      (obj) => Number.parseInt(obj.id) === Number.parseInt(newData.id)
+    );
+    newDecks[deckIndex] = newData;
+    setUserDeck(newDecks);
+  }, []);
+
   const yellowStars = new Array(
     Math.floor(deckDetail.rating ? deckDetail.rating : 0)
   )
@@ -143,7 +167,17 @@ function DeckDetail({ deckDetail }) {
 const mapStateToProps = (state) => {
   return {
     deckDetail: state.deckReducer.deckDetail,
+    userDecks: state.deckReducer.userDecks,
   };
 };
 
-export default connect(mapStateToProps, null)(DeckDetail);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUserDeck: (value) =>
+      dispatch({ type: "SET_USER_DECKS", payload: value }),
+    setDeckDetail: (value) =>
+      dispatch({ type: "SET_DETAIL_DECK", payload: value }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DeckDetail);

@@ -8,6 +8,8 @@ function Body({
   setStatusCard,
   currentIndex,
   setCurrentIndex,
+  processNumber,
+  setProcessNumber,
 }) {
   // const questionRef = useRef();
   // const answerRef = useRef();
@@ -36,7 +38,7 @@ function Body({
   };
   // Set curent Card
   useEffect(() => {
-    const data = cards[currentIndex];
+    const data = cards[Math.round(currentIndex)];
     setCurrentCard(data);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
@@ -65,6 +67,7 @@ function Body({
     setStatusCard(newCards);
     if (status) {
       setCurrentIndex((item) => item + 1);
+      setProcessNumber(processNumber + 1 / cards.length);
     } else {
       setCurrentCard(data);
     }

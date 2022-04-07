@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import DeckCard from "../userdeck";
 import { connect } from "react-redux";
+import { initData } from "../../initData/initData";
 import axios from "axios";
 
 function UserBody({
@@ -15,32 +16,36 @@ function UserBody({
   isSortProcess,
   setIsSortProcess,
 }) {
+  const sortSpanRef = useRef(null);
+
   const [isOpenSortOption, setIsOpenSortOption] = useState(false);
 
-  useEffect(() => {
-    const ourRequest = axios.CancelToken.source();
-    async function fetchData() {
-      try {
-        const response = await axios.get(
-          "https://622aaf4814ccb950d22288dd.mockapi.io/api/v1/users/1",
-          {
-            cancelToken: ourRequest.token, // <-- 2nd step
-          }
-        );
-        const items = response && response.data ? response.data : [];
-        setUserDeck(items.deck);
-      } catch (error) {
-        if (axios.isCancel(error)) {
-          console.log("Request Cancel :", error.message);
-        }
-      }
-    }
-    fetchData();
-    return () => {
-      ourRequest.cancel("Cancel by user"); // <-- 3rd step
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  // const ourRequest = axios.CancelToken.source();
+  // async function fetchData() {
+  // try {
+  //   const response = await axios.get(
+  //     "https://622aaf4814ccb950d22288dd.mockapi.io/api/v1/users/1",
+  //     {
+  //       cancelToken: ourRequest.token, // <-- 2nd step
+  //     }
+  //   );
+  //   const items = response && response.data ? response.data : [];
+  //   setUserDeck(items.deck);
+  // } catch (error) {
+  //   if (axios.isCancel(error)) {
+  //     console.log("Request Cancel :", error.message);
+  //   }
+  // }
+  // const items = initData.filter((item) => item.userId === "1");
+  // setUserDeck(items);
+  // }
+  // fetchData();
+  // return () => {
+  // ourRequest.cancel("Cancel by user"); // <-- 3rd step
+  // };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   useEffect(() => {
     if (isSortProcess) {
@@ -61,22 +66,25 @@ function UserBody({
   }, [isSortName, isSortProcess]);
 
   const handleSetDetailDeck = (id) => {
-    const ourRequest = axios.CancelToken.source();
+    // const ourRequest = axios.CancelToken.source();
     async function fetchData() {
-      try {
-        const response = await axios.get(
-          `https://622aaf4814ccb950d22288dd.mockapi.io/api/v1/users/1/decks/${id}`,
-          {
-            cancelToken: ourRequest.token, // <-- 2nd step
-          }
-        );
-        const item = response && response.data ? response.data : [];
-        setDeckDetail(item);
-      } catch (error) {
-        if (axios.isCancel(error)) {
-          console.log("Request Cancel :", error.message);
-        }
-      }
+      // try {
+      //   const response = await axios.get(
+      //     `https://622aaf4814ccb950d22288dd.mockapi.io/api/v1/users/1/decks/${id}`,
+      //     {
+      //       cancelToken: ourRequest.token, // <-- 2nd step
+      //     }
+      //   );
+      //   const item = response && response.data ? response.data : [];
+      //   setDeckDetail(item);
+      // } catch (error) {
+      //   if (axios.isCancel(error)) {
+      //     console.log("Request Cancel :", error.message);
+      //   }
+      // }
+      const items = initData.filter((item) => item.userId === "1");
+      const deckItems = items.find((item) => item.id === id);
+      setDeckDetail(deckItems);
     }
     fetchData();
   };
@@ -91,10 +99,23 @@ function UserBody({
     setIsSortProcess(true);
     setSortSelected(data);
   };
-
+  //When click outside sort form
+  useEffect(() => {
+    document.addEventListener("click", handleCloseSortForm, true);
+    return () => {
+      document.removeEventListener("click", handleCloseSortForm, true);
+    };
+  });
+  //Handle click outside sort form
+  const handleCloseSortForm = (e) => {
+    if (sortSpanRef.current && !sortSpanRef.current.contains(e.target)) {
+      return setIsOpenSortOption(false);
+    }
+  };
   return (
     <>
       <span
+        ref={sortSpanRef}
         onClick={() => setIsOpenSortOption((item) => !item)}
         className="flex items-center absolute right-0 px-6  cursor-pointer border-[1px] rounded-[2px] "
       >
