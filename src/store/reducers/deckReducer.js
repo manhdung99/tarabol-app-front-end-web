@@ -7,6 +7,7 @@ const initState = {
   deckIntrodule: {},
   chapterDetail: {},
   learningIndex: 0,
+  currentPage: "",
 };
 
 const deckReducer = (state = initState, action) => {
@@ -56,6 +57,11 @@ const deckReducer = (state = initState, action) => {
       return {
         ...state,
         learningIndex: action.payload,
+      };
+    case "SET_CURRENT_PAGE":
+      return {
+        ...state,
+        currentPage: action.payload,
       };
     default:
       return state;

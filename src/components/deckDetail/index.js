@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Footer from "../footer";
 import Header from "../header";
 import Body from "./body";
@@ -6,7 +6,7 @@ import Menu from "./menu";
 import { connect } from "react-redux";
 
 function DeckDetail({ deckDetail, userDecks, setUserDeck, setDeckDetail }) {
-  // console.log(deckDetail);
+  console.log(deckDetail);
   // console.log(
   //   deckDetail.chapter.reduce((prev, current) => prev + current.progress, 0)
   // );
@@ -18,9 +18,9 @@ function DeckDetail({ deckDetail, userDecks, setUserDeck, setDeckDetail }) {
     );
     let newData = {
       ...deckDetail,
-      progress: Math.round((newProgress / 3) * 100) / 100,
+      progress:
+        Math.round((newProgress / deckDetail.chapter.length) * 100) / 100,
     };
-    console.log(newData);
     setDeckDetail(newData);
     let newDecks = [...userDecks];
     let deckIndex = newDecks.findIndex(
@@ -28,6 +28,7 @@ function DeckDetail({ deckDetail, userDecks, setUserDeck, setDeckDetail }) {
     );
     newDecks[deckIndex] = newData;
     setUserDeck(newDecks);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const yellowStars = new Array(

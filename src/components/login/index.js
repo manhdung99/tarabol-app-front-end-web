@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { initData } from "../../initData/initData";
-const Login = ({ users, setLoginStatus, setUserDeck }) => {
+const Login = ({ users, setLoginStatus, setUserDeck, currentPage }) => {
   const navigate = useNavigate();
   const [error, setError] = useState(false);
   const [account, setAccount] = useState({
@@ -18,7 +18,11 @@ const Login = ({ users, setLoginStatus, setUserDeck }) => {
           setLoginStatus(true);
           const items = initData.filter((item) => item.userId === "1");
           setUserDeck(items);
-          navigate("/tarabol-app-front-end-web/homepage");
+          if (currentPage !== "") {
+            navigate(currentPage);
+          } else {
+            navigate("/tarabol-app-front-end-web/homepage");
+          }
         } else {
           setError(true);
           e.preventDefault();
@@ -237,6 +241,7 @@ const Login = ({ users, setLoginStatus, setUserDeck }) => {
 const mapStateToProps = (state) => {
   return {
     users: state.userReducer.users,
+    currentPage: state.deckReducer.currentPage,
   };
 };
 const mapDispatchToProps = (dispatch) => {

@@ -67,7 +67,9 @@ function Body({
     setStatusCard(newCards);
     if (status) {
       setCurrentIndex((item) => item + 1);
-      setProcessNumber(processNumber + 1 / cards.length);
+      setProcessNumber(
+        Math.round((processNumber + 1 / cards.length) * 100) / 100
+      );
     } else {
       setCurrentCard(data);
     }

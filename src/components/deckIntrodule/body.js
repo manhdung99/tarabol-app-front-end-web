@@ -1,7 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-
 function Body({ chapters }) {
   return (
     <div className="">
@@ -20,7 +18,7 @@ function Body({ chapters }) {
               className="sm:text-[16px] md:text-[18px] lg:text-[24px]"
             >
               <td className="pt-[8px] sm:text-[12px] md:text-[16px]">
-                <Link to="/tarabol-app-front-end-web/learn">{item.title}</Link>
+                {item.title}
               </td>
               <td className="pt-[8px] sm:text-[12px] md:text-[16px] text-center pr-[60px]">
                 {item.level}

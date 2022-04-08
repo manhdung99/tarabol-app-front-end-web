@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import DeckCard from "../userdeck";
 import { connect } from "react-redux";
-import { initData } from "../../initData/initData";
-import axios from "axios";
+// import { initData } from "../../initData/initData";
+// import axios from "axios";
 
 function UserBody({
   userDecks,
@@ -17,7 +17,7 @@ function UserBody({
   setIsSortProcess,
 }) {
   const sortSpanRef = useRef(null);
-
+  console.log(userDecks);
   const [isOpenSortOption, setIsOpenSortOption] = useState(false);
 
   // useEffect(() => {
@@ -82,7 +82,7 @@ function UserBody({
       //     console.log("Request Cancel :", error.message);
       //   }
       // }
-      const items = initData.filter((item) => item.userId === "1");
+      const items = [...userDecks];
       const deckItems = items.find((item) => item.id === id);
       setDeckDetail(deckItems);
     }

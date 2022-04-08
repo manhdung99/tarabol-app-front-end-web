@@ -1,12 +1,21 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Footer from "../footer";
 import Header from "../header";
 import Body from "./body";
 import { connect } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 
-function DeckIntrodule({ deckIntrodule }) {
+function DeckIntrodule({
+  deckIntrodule,
+  userDecks,
+  setUserDeck,
+  setCurrentPage,
+  isLogin,
+  setDeckDetail,
+}) {
+  const navigate = useNavigate();
+  const [isBuy, setIsBuy] = useState(false);
   const ref = useRef();
-  console.log(deckIntrodule);
   const yellowStars = new Array(
     Math.floor(deckIntrodule.rating ? deckIntrodule.rating : 0)
   )
@@ -22,7 +31,41 @@ function DeckIntrodule({ deckIntrodule }) {
     ref.current.style.background = "url(" + deckIntrodule.image + ")";
     ref.current.style.backgroundSize = "cover";
     // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    const deckIndex = userDecks.findIndex(
+      (ObjIndex) => ObjIndex.title === deckIntrodule.title
+    );
+    if (deckIndex >= 0) {
+      setIsBuy(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const handleAddToUserDeck = () => {
+    if (isLogin) {
+      let newDeckIntrodule = { ...deckIntrodule, id: userDecks.length + 2 };
+      let newUserDeck = [newDeckIntrodule, ...userDecks];
+      setUserDeck(newUserDeck);
+      navigate("/tarabol-app-front-end-web/homepage");
+    } else {
+      setCurrentPage("/tarabol-app-front-end-web/introduledeck");
+      navigate("/tarabol-app-front-end-web/login");
+    }
+  };
+
+  const handleMoveToDeck = () => {
+    async function fetchData() {
+      const items = [...userDecks];
+      const deckIndex = items.findIndex(
+        (ObjIndex) => ObjIndex.title === deckIntrodule.title
+      );
+      const idItem = items[deckIndex].id;
+      const deckItems = items.find((item) => item.id === idItem);
+      setDeckDetail(deckItems);
+    }
+    fetchData();
+  };
+
   return (
     <>
       <Header isLogin={true} isSearch={true} />
@@ -83,7 +126,7 @@ function DeckIntrodule({ deckIntrodule }) {
           <div className="flex flex-wrap mt-16">
             <div className="sm:w-full">
               <Body
-                chapters={deckIntrodule?.chapters ? deckIntrodule.chapters : []}
+                chapters={deckIntrodule?.chapter ? deckIntrodule.chapter : []}
               />
             </div>
           </div>
@@ -126,9 +169,23 @@ function DeckIntrodule({ deckIntrodule }) {
                 </div>
               </div>
               <div className="sm:py-4 md:my-6 lg:my-8 flex items-center justify-center">
-                <button className="bg-[#0079bf] hover:bg-[#026aa7] text-white text-[16px] sm:py-[3px] sm:px-[20px]  md:py-[5px] md:px-[30px] rounded-[2px] ">
-                  Add
-                </button>
+                {isBuy ? (
+                  <button
+                    onClick={() => handleMoveToDeck()}
+                    className="bg-[#0079bf] hover:bg-[#026aa7] text-white text-[16px] sm:py-[3px] sm:px-[20px]  md:py-[5px] md:px-[30px] rounded-[2px] "
+                  >
+                    <Link to="/tarabol-app-front-end-web/detaildeck">
+                      Move to Deck
+                    </Link>
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => handleAddToUserDeck(deckIntrodule)}
+                    className="bg-[#0079bf] hover:bg-[#026aa7] text-white text-[16px] sm:py-[3px] sm:px-[20px]  md:py-[5px] md:px-[30px] rounded-[2px] "
+                  >
+                    Add
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -142,7 +199,19 @@ function DeckIntrodule({ deckIntrodule }) {
 const mapStateToProps = (state) => {
   return {
     deckIntrodule: state.deckReducer.deckIntrodule,
+    userDecks: state.deckReducer.userDecks,
+    isLogin: state.userReducer.isLogin,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUserDeck: (value) =>
+      dispatch({ type: "SET_USER_DECKS", payload: value }),
+    setCurrentPage: (value) =>
+      dispatch({ type: "SET_CURRENT_PAGE", payload: value }),
+    setDeckDetail: (value) =>
+      dispatch({ type: "SET_DETAIL_DECK", payload: value }),
   };
 };
 
-export default connect(mapStateToProps, null)(DeckIntrodule);
+export default connect(mapStateToProps, mapDispatchToProps)(DeckIntrodule);
