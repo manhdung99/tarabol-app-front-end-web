@@ -12,22 +12,26 @@ function Body({ chapters }) {
           </tr>
         </thead>
         <tbody>
-          {chapters.map((item) => (
-            <tr
-              key={item.id}
-              className="sm:text-[16px] md:text-[18px] lg:text-[24px]"
-            >
-              <td className="pt-[8px] sm:text-[12px] md:text-[16px]">
-                {item.title}
-              </td>
-              <td className="pt-[8px] sm:text-[12px] md:text-[16px] text-center pr-[60px]">
-                {item.level}
-              </td>
-              <td className="pt-[8px] sm:text-[12px] md:text-[16px] text-center">
-                {item.num_cards} Cards
-              </td>
-            </tr>
-          ))}
+          {chapters.length > 0 ? (
+            chapters.map((item) => (
+              <tr
+                key={item.id}
+                className="sm:text-[16px] md:text-[18px] lg:text-[24px]"
+              >
+                <td className="pt-[8px] sm:text-[12px] md:text-[16px]">
+                  {item.title}
+                </td>
+                <td className="pt-[8px] sm:text-[12px] md:text-[16px] text-center pr-[60px]">
+                  {item.level}
+                </td>
+                <td className="pt-[8px] sm:text-[12px] md:text-[16px] text-center">
+                  {item.num_cards} Cards
+                </td>
+              </tr>
+            ))
+          ) : (
+            <div className="mt-[154px]"></div>
+          )}
         </tbody>
       </table>
     </div>

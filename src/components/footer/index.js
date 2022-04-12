@@ -2,7 +2,7 @@ import React from "react";
 export default function Footer() {
   const learnItems = ["Feature Posts", "Repition Algorithm", "Services"];
   return (
-    <footer className="bg-[#4337C9] mt-[48px] ">
+    <footer className="bg-[#4337C9] mt-[48px] fixed w-full bottom-0 ">
       <div className=" sm:max-w-[95%] md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto flex flex-col md:py-[24px] lg:py-[64px] mx-auto">
         <div className="flex w-[100%]">
           <div className="sm:w-[25%] md-w-[30%]">

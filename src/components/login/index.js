@@ -34,19 +34,19 @@ const Login = ({ users, setLoginStatus, setUserDeck, currentPage }) => {
     }
   };
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <p>UserName:DungNM25@gmail.com</p>
-      <p>Password:123456</p>
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 xl:px-12">
+      <p className=" 3xl:text-[36px]">UserName:DungNM25@gmail.com</p>
+      <p className=" 3xl:text-[36px]">Password:123456</p>
+      <div className="sm:mx-auto sm:w-full sm:max-w-md xl:max-w-xl 3xl:max-w-4xl">
         <img
-          className="mx-auto h-20 w-auto"
+          className="mx-auto h-20  3xl:h-40 w-auto"
           src="https://www.tarabol.space/logo.svg"
           alt="Workflow"
         />
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        <h2 className="mt-6 text-center text-3xl  3xl:text-6xl font-extrabold text-gray-900">
           Sign in to your account
         </h2>
-        <p className="mt-2 text-center text-sm text-gray-600">
+        <p className="mt-2 text-center text-sm  3xl:text-3xl text-gray-600">
           Or{" "}
           <Link
             to="/"
@@ -57,22 +57,22 @@ const Login = ({ users, setLoginStatus, setUserDeck, currentPage }) => {
         </p>
       </div>
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 space-y-6">
+      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md xl:max-w-xl 3xl:max-w-4xl">
+        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 space-y-6 3xl:space-y-8">
           <form
             onSubmit={(e) => handleLogin(e)}
-            className="space-y-6"
+            className="space-y-6 3xl:space-y-8"
             action="#"
             method="POST"
           >
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm 3xl:text-3xl  font-medium text-gray-700"
               >
                 Email address
               </label>
-              <div className="mt-1">
+              <div className="mt-1 lg:mt-2 3xl:mt-4">
                 <input
                   id="email"
                   name="email"
@@ -84,11 +84,11 @@ const Login = ({ users, setLoginStatus, setUserDeck, currentPage }) => {
                     setAccount({ ...account, username: e.target.value })
                   }
                   required
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  className="appearance-none block w-full px-3 py-2  3xl:py-6 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
               {error && (
-                <p className="text-[red] text-[12px] absolute ">
+                <p className="text-[red] text-[12px] lg:text-[18px] absolute ">
                   username or password incorect
                 </p>
               )}
@@ -96,11 +96,11 @@ const Login = ({ users, setLoginStatus, setUserDeck, currentPage }) => {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm 3xl:text-3xl  font-medium text-gray-700"
               >
                 Password
               </label>
-              <div className="mt-1">
+              <div className="mt-1 mt-1 lg:mt-2  3xl:mt-4">
                 <input
                   id="password"
                   name="password"
@@ -112,11 +112,11 @@ const Login = ({ users, setLoginStatus, setUserDeck, currentPage }) => {
                   }
                   autoComplete="current-password"
                   required
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  className="appearance-none block w-full px-3 py-2 3xl:py-6 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
               {error && (
-                <p className="text-[red] text-[12px] absolute ">
+                <p className="text-[red] text-[12px] lg:text-[18px]  absolute ">
                   username or password incorect
                 </p>
               )}
@@ -128,11 +128,11 @@ const Login = ({ users, setLoginStatus, setUserDeck, currentPage }) => {
                   id="remember_me"
                   name="remember_me"
                   type="checkbox"
-                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded cursor-pointer"
+                  className="h-4 w-4 3xl:h-6 3xl:w-6  text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded cursor-pointer"
                 />
                 <label
                   htmlFor="remember_me"
-                  className="ml-2 block text-sm text-gray-900"
+                  className="ml-2 block text-sm  3xl:text-2xl text-gray-900"
                 >
                   Remember me
                 </label>
@@ -141,7 +141,7 @@ const Login = ({ users, setLoginStatus, setUserDeck, currentPage }) => {
               <div className="text-sm">
                 <Link
                   to="/"
-                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                  className="font-medium  3xl:text-2xl text-indigo-600 hover:text-indigo-500"
                 >
                   Forgot your password?
                 </Link>
@@ -152,7 +152,7 @@ const Login = ({ users, setLoginStatus, setUserDeck, currentPage }) => {
               <button
                 // type="submit"
                 onClick={(e) => handleLogin(e)}
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="w-full flex justify-center py-2 3xl:py-4 px-4 border border-transparent rounded-md shadow-sm text-sm lg:text-lg 3xl:text-2xl font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Sign in
               </button>
@@ -164,8 +164,8 @@ const Login = ({ users, setLoginStatus, setUserDeck, currentPage }) => {
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-300" />
               </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">
+              <div className="relative flex justify-center text-sm 3xl:text-2xl">
+                <span className="px-2  bg-white text-gray-500">
                   Or continue with
                 </span>
               </div>
@@ -175,11 +175,11 @@ const Login = ({ users, setLoginStatus, setUserDeck, currentPage }) => {
               <div>
                 <Link
                   to="/"
-                  className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                  className="w-full inline-flex justify-center py-2 px-4  3xl:py-6 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                 >
                   <span className="sr-only">Sign in with Facebook</span>
                   <svg
-                    className="w-5 h-5"
+                    className="w-5 h-5 lg:w-6 lg:h-6 3xl:w-12 3xl:h-12"
                     aria-hidden="true"
                     fill="currentColor"
                     viewBox="0 0 20 20"
@@ -196,11 +196,11 @@ const Login = ({ users, setLoginStatus, setUserDeck, currentPage }) => {
               <div>
                 <Link
                   to="/"
-                  className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                  className="w-full inline-flex justify-center py-2 px-4  3xl:py-6 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                 >
                   <span className="sr-only">Sign in with Twitter</span>
                   <svg
-                    className="w-5 h-5"
+                    className="w-5 h-5 lg:w-6 lg:h-6 3xl:w-12 3xl:h-12"
                     aria-hidden="true"
                     fill="currentColor"
                     viewBox="0 0 20 20"
@@ -213,11 +213,11 @@ const Login = ({ users, setLoginStatus, setUserDeck, currentPage }) => {
               <div>
                 <Link
                   to="/"
-                  className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                  className="w-full inline-flex justify-center py-2 px-4 3xl:py-6 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                 >
                   <span className="sr-only">Sign in with GitHub</span>
                   <svg
-                    className="w-5 h-5"
+                    className="w-5 h-5 lg:w-6 lg:h-6 3xl:w-12 3xl:h-12"
                     aria-hidden="true"
                     fill="currentColor"
                     viewBox="0 0 20 20"
