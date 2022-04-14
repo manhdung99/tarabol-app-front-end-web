@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 function Body({ chapters }) {
   return (
-    <div className="">
+    <div>
       <table className="w-full">
         <thead>
           <tr className="font-bold sm:text-[18px] md:text-[24px] lg:text-[28px]">
@@ -30,7 +30,7 @@ function Body({ chapters }) {
               </tr>
             ))
           ) : (
-            <div className="mt-[154px]"></div>
+            <div className="mt-[200px]"></div>
           )}
         </tbody>
       </table>

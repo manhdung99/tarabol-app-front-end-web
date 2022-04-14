@@ -34,7 +34,7 @@ function Learn({
   return (
     <>
       <Header isLogin={true} isSearch={true} />
-      <div className="sm:mt-[88px] md:mt-6 lg:mt-8 sm:max-w-[95%] md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto">
+      <div className="sm:mt-[88px] md:mt-6 lg:mt-8 sm:max-w-[95%] md:max-w-[760px] min-h-[calc(100vh-560px)] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto">
         <p className="mb-0 text-[36px] font-bold">{chapterDetail.title}</p>
         <button
           onClick={() => handleBackToDeckPage()}

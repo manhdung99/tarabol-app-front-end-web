@@ -7,6 +7,7 @@ import Market from "./components/market";
 import DeckDetail from "./components/deckDetail";
 import Learn from "./components/learn";
 import DeckIntrodule from "./components/deckIntrodule";
+import Profile from "./components/profile";
 function App() {
   return (
     <Router>
@@ -50,6 +51,11 @@ function App() {
           path="/tarabol-app-front-end-web/learn"
           exact
           element={<Learn />}
+        />
+        <Route
+          path="/tarabol-app-front-end-web/profile"
+          exact
+          element={<Profile />}
         />
       </Routes>
     </Router>

@@ -1,0 +1,108 @@
+import React, { useEffect, useRef, useState } from "react";
+
+export default function ChangeGmailModal({
+  setIsChangeGmail,
+  currentUser,
+  setUsers,
+  users,
+  setCurrentUser,
+}) {
+  const gmailRef = useRef(null);
+  const [gmailCurrent, setGmailCurrent] = useState(currentUser.email);
+
+  const [currentPass, setCurrentPass] = useState("");
+  const [isWrongPass, setIsWrongPass] = useState(false);
+
+  const handleUpdateGmail = () => {
+    if (currentPass === currentUser.password) {
+      let newCurrentUser = { ...currentUser, email: gmailCurrent };
+      let newUsers = [...users];
+      let userIndex = users.findIndex(
+        (user) => user.username === newCurrentUser.username
+      );
+      newUsers[userIndex] = newCurrentUser;
+      setUsers(newUsers);
+      setCurrentUser(newCurrentUser);
+      setIsChangeGmail(false);
+    } else {
+      setIsWrongPass(true);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleCloseShowGmailModal, true);
+    return () => {
+      document.removeEventListener("click", handleCloseShowGmailModal, true);
+    };
+  });
+  const handleCloseShowGmailModal = (e) => {
+    if (gmailRef.current && !gmailRef.current.contains(e.target)) {
+      return setIsChangeGmail(false);
+    }
+  };
+
+  return (
+    <div className="fixed top-0 right-0 bottom-0 left-0 bg-[rgba(0,0,0,0.6)] z-[10] flex items-center justify-center ">
+      <div ref={gmailRef} className="w-[440px] bg-[#36393f] rounded-[8px]">
+        <div className="px-6 py-4 text-center relative">
+          <p className="text-[24px] text-[#fff]">Change your email</p>
+          <p className="text-[#B9BBBE]">
+            Enter a new email and your existing password
+          </p>
+          <span
+            onClick={() => setIsChangeGmail(false)}
+            className="absolute top-2 right-4 cursor-pointer group"
+          >
+            <svg aria-hidden="false" width="24" height="24" viewBox="0 0 24 24">
+              <path
+                className="group-hover:fill-white"
+                fill="#4752c4"
+                d="M18.4 4L12 10.4L5.6 4L4 5.6L10.4 12L4 18.4L5.6 20L12 13.6L18.4 20L20 18.4L13.6 12L20 5.6L18.4 4Z"
+              ></path>
+            </svg>
+          </span>
+        </div>
+        <div className="p-4 flex flex-col gap-y-3">
+          <div>
+            <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
+              email
+            </p>
+            <input
+              value={gmailCurrent}
+              onChange={(e) => setGmailCurrent(e.target.value)}
+              type="text"
+              className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]   "
+            />
+          </div>
+          <div>
+            <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
+              current password
+            </p>
+            <input
+              type="password"
+              value={currentPass}
+              onChange={(e) => setCurrentPass(e.target.value)}
+              onFocus={() => setIsWrongPass(false)}
+              className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]"
+            />
+            {isWrongPass && <p className="text-[red]">password incorect</p>}
+          </div>
+        </div>
+        <div className="bg-[#2F3136] p-4 flex justify-end">
+          <button
+            onClick={() => setIsChangeGmail(false)}
+            className="py-[8px] px-[24px] text-[14px] font-bold text-white hover:opacity-80"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={() => handleUpdateGmail()}
+            className="bg-[#5865F2]  py-[8px] px-[24px] text-[14px] font-bold text-white rounded-[4px] hover:bg-[#4752c4]"
+          >
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}

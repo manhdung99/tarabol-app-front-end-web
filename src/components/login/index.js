@@ -4,7 +4,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { initData } from "../../initData/initData";
-const Login = ({ users, setLoginStatus, setUserDeck, currentPage }) => {
+const Login = ({
+  users,
+  setLoginStatus,
+  setUserDeck,
+  currentPage,
+  setCurrentUser,
+}) => {
   const navigate = useNavigate();
   const [error, setError] = useState(false);
   const [account, setAccount] = useState({
@@ -18,6 +24,7 @@ const Login = ({ users, setLoginStatus, setUserDeck, currentPage }) => {
           setLoginStatus(true);
           const items = initData.filter((item) => item.userId === "1");
           setUserDeck(items);
+          setCurrentUser(users[i]);
           if (currentPage !== "") {
             navigate(currentPage);
           } else {
@@ -250,6 +257,8 @@ const mapDispatchToProps = (dispatch) => {
       dispatch({ type: "SET_LOGIN_STATUS", payload: value }),
     setUserDeck: (value) =>
       dispatch({ type: "SET_USER_DECKS", payload: value }),
+    setCurrentUser: (value) =>
+      dispatch({ type: "SET_CURRENT_USER", payload: value }),
   };
 };
 

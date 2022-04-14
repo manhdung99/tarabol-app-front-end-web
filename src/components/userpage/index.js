@@ -10,7 +10,7 @@ export default function UserPage() {
   return (
     <>
       <Header isSearch="true" isLogin={true} />
-      <div className=" flex sm:flex-col md:flex-row sm:max-w-[95%] md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto flex md:mt-6 lg:mt-8">
+      <div className=" flex sm:flex-col md:flex-row sm:max-w-[95%] min-h-[calc(100vh-560px)] md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto flex md:mt-6 lg:mt-8">
         <div className="sm:w-[100%] md:w-[20%]">
           <UserMenuBar setSortSelected={setSortSelected} />
         </div>
