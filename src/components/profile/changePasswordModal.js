@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
+import { connect } from "react-redux";
 
-export default function ChangePassWordModal({
+function ChangePassWordModal({
   setIsChangePass,
   currentUser,
   setUsers,
@@ -67,47 +68,52 @@ export default function ChangePassWordModal({
             </svg>
           </span>
         </div>
-        <div className="p-4 flex flex-col gap-y-3">
-          <div>
-            <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
-              current password
-            </p>
-            <input
-              value={currentPass}
-              onFocus={() => setIsWrongPass(false)}
-              onChange={(e) => setCurrentPass(e.target.value)}
-              type="password"
-              className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]"
-            />
-            {isWrongPass && <p className="text-[red]">password incorect</p>}
-          </div>
-          <div>
-            <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
-              new password
-            </p>
-            <input
-              value={newPassword}
-              onFocus={(e) => setIsWrongPassConfirm(false)}
-              onChange={(e) => setNewPassword(e.target.value)}
-              type="password"
-              className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]"
-            />
-          </div>
-          <div>
-            <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
-              confirm password
-            </p>
-            <input
-              value={confirmPassword}
-              onFocus={(e) => setIsWrongPassConfirm(false)}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              type="password"
-              className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]"
-            />
-            {isWrongPassConfirm && (
-              <p className="text-[red]">confirm password not match</p>
-            )}
-          </div>
+        <div className="p-4">
+          <form className="flex flex-col gap-y-3">
+            <div>
+              <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
+                current password
+              </p>
+              <input
+                value={currentPass}
+                autoComplete="none"
+                onFocus={() => setIsWrongPass(false)}
+                onChange={(e) => setCurrentPass(e.target.value)}
+                type="password"
+                className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]"
+              />
+              {isWrongPass && <p className="text-[red]">password incorect</p>}
+            </div>
+            <div>
+              <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
+                new password
+              </p>
+              <input
+                value={newPassword}
+                autoComplete="none"
+                onFocus={(e) => setIsWrongPassConfirm(false)}
+                onChange={(e) => setNewPassword(e.target.value)}
+                type="password"
+                className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]"
+              />
+            </div>
+            <div>
+              <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
+                confirm password
+              </p>
+              <input
+                value={confirmPassword}
+                autoComplete="none"
+                onFocus={(e) => setIsWrongPassConfirm(false)}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                type="password"
+                className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]"
+              />
+              {isWrongPassConfirm && (
+                <p className="text-[red]">confirm password not match</p>
+              )}
+            </div>
+          </form>
         </div>
         <div className="bg-[#2F3136] p-4 flex justify-end">
           <button
@@ -127,3 +133,22 @@ export default function ChangePassWordModal({
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.userReducer.currentUser,
+    users: state.userReducer.users,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUsers: (value) => dispatch({ type: "SET_USERS", payload: value }),
+    setCurrentUser: (value) =>
+      dispatch({ type: "SET_CURRENT_USER", payload: value }),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ChangePassWordModal);

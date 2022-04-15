@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
+import { connect } from "react-redux";
 
-export default function ChangeGmailModal({
+function ChangeGmailModal({
   setIsChangeGmail,
   currentUser,
   setUsers,
@@ -62,47 +63,68 @@ export default function ChangeGmailModal({
             </svg>
           </span>
         </div>
-        <div className="p-4 flex flex-col gap-y-3">
-          <div>
-            <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
-              email
-            </p>
-            <input
-              value={gmailCurrent}
-              onChange={(e) => setGmailCurrent(e.target.value)}
-              type="text"
-              className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]   "
-            />
+        <form action="">
+          <div className="p-4 flex flex-col gap-y-3 ">
+            <div>
+              <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
+                email
+              </p>
+              <input
+                value={gmailCurrent}
+                autoComplete="email"
+                onChange={(e) => setGmailCurrent(e.target.value)}
+                type="email"
+                className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]   "
+              />
+            </div>
+            <div>
+              <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
+                current password
+              </p>
+              <input
+                type="password"
+                value={currentPass}
+                autoComplete="none"
+                onChange={(e) => setCurrentPass(e.target.value)}
+                onFocus={() => setIsWrongPass(false)}
+                className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]"
+              />
+              {isWrongPass && <p className="text-[red]">password incorect</p>}
+            </div>
           </div>
-          <div>
-            <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
-              current password
-            </p>
-            <input
-              type="password"
-              value={currentPass}
-              onChange={(e) => setCurrentPass(e.target.value)}
-              onFocus={() => setIsWrongPass(false)}
-              className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]"
-            />
-            {isWrongPass && <p className="text-[red]">password incorect</p>}
+          <div className="bg-[#2F3136] p-4 flex justify-end">
+            <button
+              onClick={() => setIsChangeGmail(false)}
+              className="py-[8px] px-[24px] text-[14px] font-bold text-white hover:opacity-80"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              onClick={() => handleUpdateGmail()}
+              className="bg-[#5865F2]  py-[8px] px-[24px] text-[14px] font-bold text-white rounded-[4px] hover:bg-[#4752c4]"
+            >
+              Done
+            </button>
           </div>
-        </div>
-        <div className="bg-[#2F3136] p-4 flex justify-end">
-          <button
-            onClick={() => setIsChangeGmail(false)}
-            className="py-[8px] px-[24px] text-[14px] font-bold text-white hover:opacity-80"
-          >
-            Cancel
-          </button>
-          <button
-            onClick={() => handleUpdateGmail()}
-            className="bg-[#5865F2]  py-[8px] px-[24px] text-[14px] font-bold text-white rounded-[4px] hover:bg-[#4752c4]"
-          >
-            Done
-          </button>
-        </div>
+        </form>
       </div>
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.userReducer.currentUser,
+    users: state.userReducer.users,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUsers: (value) => dispatch({ type: "SET_USERS", payload: value }),
+    setCurrentUser: (value) =>
+      dispatch({ type: "SET_CURRENT_USER", payload: value }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChangeGmailModal);

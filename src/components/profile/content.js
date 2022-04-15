@@ -19,8 +19,6 @@ function Content({
   isChangePass,
   setIsChangePass,
 }) {
-  console.log(users);
-
   return (
     <div className="max-w-[80%]">
       <div className="flex items-center gap-x-[16px]">
@@ -90,22 +88,10 @@ function Content({
         </button>
       </div>
       {isChangeUsername && (
-        <ChangeUsernameModal
-          setIsChangeUsername={setIsChangeUsername}
-          currentUser={currentUser}
-          setUsers={setUsers}
-          users={users}
-          setCurrentUser={setCurrentUser}
-        />
+        <ChangeUsernameModal setIsChangeUsername={setIsChangeUsername} />
       )}
       {isChangeGmail && (
-        <ChangeGmailModal
-          setIsChangeGmail={setIsChangeGmail}
-          currentUser={currentUser}
-          setUsers={setUsers}
-          users={users}
-          setCurrentUser={setCurrentUser}
-        />
+        <ChangeGmailModal setIsChangeGmail={setIsChangeGmail} />
       )}
       {isChangePhone && (
         <ChangePhoneModal
@@ -117,13 +103,7 @@ function Content({
         />
       )}
       {isChangePass && (
-        <ChangePassWordModal
-          setIsChangePass={setIsChangePass}
-          currentUser={currentUser}
-          setUsers={setUsers}
-          users={users}
-          setCurrentUser={setCurrentUser}
-        />
+        <ChangePassWordModal setIsChangePass={setIsChangePass} />
       )}
     </div>
   );

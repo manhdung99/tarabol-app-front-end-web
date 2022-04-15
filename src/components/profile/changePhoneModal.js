@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRef } from "react";
-export default function ChangePhoneModal({
+import { connect } from "react-redux";
+function ChangePhoneModal({
   setIsChangePhone,
   currentUser,
   setUsers,
@@ -62,31 +63,35 @@ export default function ChangePhoneModal({
             </svg>
           </span>
         </div>
-        <div className="p-4 flex flex-col gap-y-3">
-          <div>
-            <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
-              phone number
-            </p>
-            <input
-              value={phoneCurrent}
-              onChange={(e) => setPhoneCurrent(e.target.value)}
-              type="text"
-              className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]   "
-            />
-          </div>
-          <div>
-            <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
-              current password
-            </p>
-            <input
-              type="password"
-              value={currentPass}
-              onChange={(e) => setCurrentPass(e.target.value)}
-              onFocus={() => setIsWrongPass(false)}
-              className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]"
-            />
-            {isWrongPass && <p className="text-[red]">password incorect</p>}
-          </div>
+        <div className="p-4">
+          <form className="flex flex-col gap-y-3">
+            <div>
+              <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
+                phone number
+              </p>
+              <input
+                value={phoneCurrent}
+                autoComplete="none"
+                onChange={(e) => setPhoneCurrent(e.target.value)}
+                type="text"
+                className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]   "
+              />
+            </div>
+            <div>
+              <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
+                current password
+              </p>
+              <input
+                type="password"
+                autoComplete="none"
+                value={currentPass}
+                onChange={(e) => setCurrentPass(e.target.value)}
+                onFocus={() => setIsWrongPass(false)}
+                className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]"
+              />
+              {isWrongPass && <p className="text-[red]">password incorect</p>}
+            </div>
+          </form>
         </div>
         <div className="bg-[#2F3136] p-4 flex justify-end">
           <button
@@ -106,3 +111,19 @@ export default function ChangePhoneModal({
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.userReducer.currentUser,
+    users: state.userReducer.users,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUsers: (value) => dispatch({ type: "SET_USERS", payload: value }),
+    setCurrentUser: (value) =>
+      dispatch({ type: "SET_CURRENT_USER", payload: value }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChangePhoneModal);

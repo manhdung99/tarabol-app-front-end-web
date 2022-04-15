@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
+import { connect } from "react-redux";
 
-export default function ChangeUsernameModal({
+function ChangeUsernameModal({
   setIsChangeUsername,
   currentUser,
   setUsers,
@@ -64,31 +65,35 @@ export default function ChangeUsernameModal({
             </svg>
           </span>
         </div>
-        <div className="p-4 flex flex-col gap-y-3">
-          <div>
-            <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
-              username
-            </p>
-            <input
-              type="text"
-              value={userNameCurrent}
-              onChange={(e) => setUserNameCurrent(e.target.value)}
-              className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]   "
-            />
-          </div>
-          <div>
-            <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
-              current password
-            </p>
-            <input
-              value={currentPass}
-              onFocus={(e) => setIsWrongPass(false)}
-              onChange={(e) => setCurrentPass(e.target.value)}
-              type="password"
-              className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]"
-            />
-            {isWrongPass && <p className="text-[red]">password incorect</p>}
-          </div>
+        <div className="p-4">
+          <form className="flex flex-col gap-y-3">
+            <div>
+              <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
+                username
+              </p>
+              <input
+                autoComplete="none"
+                type="text"
+                value={userNameCurrent}
+                onChange={(e) => setUserNameCurrent(e.target.value)}
+                className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]   "
+              />
+            </div>
+            <div>
+              <p className="text-[#B9BBBE] uppercase mb-2 text-[12px] font-bold ">
+                current password
+              </p>
+              <input
+                value={currentPass}
+                onFocus={(e) => setIsWrongPass(false)}
+                onChange={(e) => setCurrentPass(e.target.value)}
+                autoComplete="none"
+                type="password"
+                className="w-full py-[8px] outline-0 px-2  bg-[#202225] rounded-[4px] text-[#B9BBBE]"
+              />
+              {isWrongPass && <p className="text-[red]">password incorect</p>}
+            </div>
+          </form>
         </div>
         <div className="bg-[#2F3136] p-4 flex justify-end">
           <button
@@ -108,3 +113,22 @@ export default function ChangeUsernameModal({
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.userReducer.currentUser,
+    users: state.userReducer.users,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUsers: (value) => dispatch({ type: "SET_USERS", payload: value }),
+    setCurrentUser: (value) =>
+      dispatch({ type: "SET_CURRENT_USER", payload: value }),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ChangeUsernameModal);
