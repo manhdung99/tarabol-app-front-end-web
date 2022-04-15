@@ -12,11 +12,11 @@ export default function Profile() {
   return (
     <>
       <Header />
-      <div className="min-h-[calc(100vh-535px)] md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto flex justify-between mt-12">
-        <div className="w-[20%]">
+      <div className="min-h-[calc(100vh-535px)] sm:mt-[88px] md:mt-0 md:max-w-[760px] lg:max-w-[1000px] xl:max-w-[1200px] mx-auto flex sm:flex-col md:flex-row justify-between mt-12">
+        <div className="sm:w-full md:w-[20%]">
           <Nav />
         </div>
-        <div className="w-[70%]">
+        <div className="sm:w-full md:w-[70%]">
           <Content
             isChangeUsername={isChangeUsername}
             setIsChangeUsername={setIsChangeUsername}

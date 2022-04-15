@@ -44,7 +44,10 @@ function ChangeGmailModal({
 
   return (
     <div className="fixed top-0 right-0 bottom-0 left-0 bg-[rgba(0,0,0,0.6)] z-[10] flex items-center justify-center ">
-      <div ref={gmailRef} className="w-[440px] bg-[#36393f] rounded-[8px]">
+      <div
+        ref={gmailRef}
+        className="sm:w-[95%] md:w-[440px] bg-[#36393f] rounded-[8px] overflow-hidden"
+      >
         <div className="px-6 py-4 text-center relative">
           <p className="text-[24px] text-[#fff]">Change your email</p>
           <p className="text-[#B9BBBE]">
