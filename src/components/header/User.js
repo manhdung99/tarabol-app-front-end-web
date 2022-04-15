@@ -36,17 +36,17 @@ function User({ setLoginStatus, userName, src }) {
       <img className="w-[36px] h-[36px] rounded-[50%]" src={src} alt="Avatar" />
       <p className=" sm:hidden md:block ml-[0.5rem]">{userName}</p>
       {showUserItem && (
-        <div className="absolute bg-[#fff] left-[-8px] top-[40px] shadow-md shadow-[#0000040] border-[1px] rounded-[4px]  ">
+        <div className="absolute bg-[#fff] sm:left-[-60px] md:left-[-8px] sm:top-[46px] md:top-[40px] shadow-md shadow-[#0000040] border-[1px] rounded-[4px]  ">
           <ul className="after:absolute after:border-solid after:border-x-[15px] after:border-y-[10px] after:border-l-[transparent] after:border-r-[transparent] after:border-t-[transparent] after:border-b-[#ccc] after:top-[-20px] after:left-[60px] after:opacity-40 ">
             <li
               onClick={() => handleMoveToProfilePage()}
-              className="w-[150px] py-[2px] text-center text-xl hover:bg-[#f1f1f1] hover:text-indigo-500 border-b-[1px]"
+              className="sm:w-[100px] md:w-[150px]  py-[2px] text-center sm:text-lg md:text-xl hover:bg-[#f1f1f1] hover:text-indigo-500 border-b-[1px]"
             >
               Profile
             </li>
             <li
               onClick={() => handleLogout()}
-              className="w-[150px] py-[2px] text-center text-xl hover:bg-[#f1f1f1] hover:text-indigo-500"
+              className="sm:w-[100px] md:w-[150px]  py-[2px] text-center sm:text-lg md:text-xl hover:bg-[#f1f1f1] hover:text-indigo-500"
             >
               Log out
             </li>
