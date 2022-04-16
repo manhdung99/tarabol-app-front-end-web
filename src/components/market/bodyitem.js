@@ -5,6 +5,11 @@ import Deck from "../deck";
 import { connect } from "react-redux";
 import axios from "axios";
 
+import {
+  setMarketItems,
+  setDeckIntrodule,
+} from "../../store/action/deckAction";
+
 function BodyItem({
   marketItems,
   setMarketItems,
@@ -1141,13 +1146,9 @@ const mapStateToProps = (state) => {
     marketItems: state.deckReducer.marketItems,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setMarketItems: (value) =>
-      dispatch({ type: "SET_MARKET_ITEMS", payload: value }),
-    setDeckIntrodule: (value) =>
-      dispatch({ type: "SET_INTRODULE_DECK", payload: value }),
-  };
+const mapDispatchToProps = {
+  setDeckIntrodule,
+  setMarketItems,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BodyItem);

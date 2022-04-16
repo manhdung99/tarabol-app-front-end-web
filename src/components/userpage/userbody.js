@@ -4,7 +4,7 @@ import DeckCard from "../userdeck";
 import { connect } from "react-redux";
 // import { initData } from "../../initData/initData";
 // import axios from "axios";
-
+import { setUserDeck, setDeckDetail } from "../../store/action/deckAction";
 function UserBody({
   userDecks,
   setUserDeck,
@@ -190,13 +190,9 @@ const mapStateToProps = (state) => {
     userDecks: state.deckReducer.userDecks,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setUserDeck: (value) =>
-      dispatch({ type: "SET_USER_DECKS", payload: value }),
-    setDeckDetail: (value) =>
-      dispatch({ type: "SET_DETAIL_DECK", payload: value }),
-  };
+const mapDispatchToProps = {
+  setDeckDetail,
+  setUserDeck,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserBody);

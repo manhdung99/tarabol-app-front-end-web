@@ -2,6 +2,8 @@ import React from "react";
 import { useRef, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { setStatusCard } from "../../store/action/deckAction";
+
 function Body({
   numCard,
   cards,
@@ -194,13 +196,8 @@ function Body({
   );
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setStatusCard: (value) =>
-      dispatch({ type: "SET_STATUS_CARD", payload: value }),
-    setLearnIndex: (value) =>
-      dispatch({ type: "SET_LEARNING_INDEX", payload: value }),
-  };
+const mapDispatchToProps = {
+  setStatusCard,
 };
 
 export default connect(null, mapDispatchToProps)(Body);

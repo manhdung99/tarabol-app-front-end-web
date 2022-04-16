@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { connect } from "react-redux";
-
+import { setMarketItems } from "../../store/action/deckAction";
 const Menubar = ({
   setMarketItems,
   marketItems,
@@ -189,11 +189,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setMarketItems: (value) =>
-      dispatch({ type: "SET_MARKET_ITEMS", payload: value }),
-  };
+const mapDispatchToProps = {
+  setMarketItems,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Menubar);

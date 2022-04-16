@@ -3,6 +3,10 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Deck from "../deck";
+import {
+  setDeckIntrodule,
+  setTrendingDeck,
+} from "../../store/action/deckAction";
 // import ImgDescription from "../image/study-background.png";
 function Trending({ trendingDeck, setTrendingDeck, setDeckIntrodule }) {
   const handleSetIntroduleChapter = () => {
@@ -137,13 +141,9 @@ const mapStateToProps = (state) => {
     trendingDeck: state.deckReducer.trendingDeck,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setTrendingDeck: (value) =>
-      dispatch({ type: "SET_TRENDING_DECK", payload: value }),
-    setDeckIntrodule: (value) =>
-      dispatch({ type: "SET_INTRODULE_DECK", payload: value }),
-  };
+const mapDispatchToProps = {
+  setTrendingDeck,
+  setDeckIntrodule,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Trending);

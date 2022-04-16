@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { setChapterDetail } from "../../store/action/deckAction";
 function Body({ chapters }) {
   return (
     <div>
@@ -38,11 +39,8 @@ function Body({ chapters }) {
   );
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setChapterDetail: (value) =>
-      dispatch({ type: "SET_DETAIL_CHAPTER", payload: value }),
-  };
+const mapDispatchToProps = {
+  setChapterDetail,
 };
 
 export default connect(null, mapDispatchToProps)(Body);

@@ -4,7 +4,11 @@ import Header from "../header";
 import Body from "./body";
 import { connect } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-
+import {
+  setUserDeck,
+  setCurrentPage,
+  setDeckDetail,
+} from "../../store/action/deckAction";
 function DeckIntrodule({
   deckIntrodule,
   userDecks,
@@ -203,15 +207,10 @@ const mapStateToProps = (state) => {
     isLogin: state.userReducer.isLogin,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setUserDeck: (value) =>
-      dispatch({ type: "SET_USER_DECKS", payload: value }),
-    setCurrentPage: (value) =>
-      dispatch({ type: "SET_CURRENT_PAGE", payload: value }),
-    setDeckDetail: (value) =>
-      dispatch({ type: "SET_DETAIL_DECK", payload: value }),
-  };
+const mapDispatchToProps = {
+  setCurrentPage,
+  setDeckDetail,
+  setUserDeck,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeckIntrodule);

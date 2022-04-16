@@ -4,7 +4,7 @@ import Header from "../header";
 import Body from "./body";
 import Menu from "./menu";
 import { connect } from "react-redux";
-
+import { setUserDeck, setDeckDetail } from "../../store/action/deckAction";
 function DeckDetail({ deckDetail, userDecks, setUserDeck, setDeckDetail }) {
   console.log(deckDetail);
   // console.log(
@@ -172,13 +172,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setUserDeck: (value) =>
-      dispatch({ type: "SET_USER_DECKS", payload: value }),
-    setDeckDetail: (value) =>
-      dispatch({ type: "SET_DETAIL_DECK", payload: value }),
-  };
+const mapDispatchToProps = {
+  setUserDeck,
+  setDeckDetail,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeckDetail);

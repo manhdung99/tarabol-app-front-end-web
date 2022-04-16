@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { connect } from "react-redux";
-
+import { setUsers, setCurrentUser } from "../../store/action/userAction";
 function ChangePassWordModal({
   setIsChangePass,
   currentUser,
@@ -143,12 +143,9 @@ const mapStateToProps = (state) => {
     users: state.userReducer.users,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setUsers: (value) => dispatch({ type: "SET_USERS", payload: value }),
-    setCurrentUser: (value) =>
-      dispatch({ type: "SET_CURRENT_USER", payload: value }),
-  };
+const mapDispatchToProps = {
+  setUsers,
+  setCurrentUser,
 };
 
 export default connect(

@@ -4,6 +4,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { initData } from "../../initData/initData";
+
+import { setUserDeck } from "../../store/action/deckAction";
+import { setCurrentUser, setLoginStatus } from "../../store/action/userAction";
 const Login = ({
   users,
   setLoginStatus,
@@ -216,7 +219,6 @@ const Login = ({
                   </svg>
                 </Link>
               </div>
-
               <div>
                 <Link
                   to="/"
@@ -251,15 +253,10 @@ const mapStateToProps = (state) => {
     currentPage: state.deckReducer.currentPage,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setLoginStatus: (value) =>
-      dispatch({ type: "SET_LOGIN_STATUS", payload: value }),
-    setUserDeck: (value) =>
-      dispatch({ type: "SET_USER_DECKS", payload: value }),
-    setCurrentUser: (value) =>
-      dispatch({ type: "SET_CURRENT_USER", payload: value }),
-  };
+const mapDispatchToProps = {
+  setUserDeck,
+  setLoginStatus,
+  setCurrentUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

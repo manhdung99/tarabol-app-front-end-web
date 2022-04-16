@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
+import { setLoginStatus } from "../../store/action/userAction";
 function User({ setLoginStatus, userName, src }) {
   const userRef = useRef(null);
   const navigate = useNavigate();
@@ -62,11 +63,8 @@ User.propTypes = {
   userName: PropTypes.string.isRequired,
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setLoginStatus: (value) =>
-      dispatch({ type: "SET_LOGIN_STATUS", payload: value }),
-  };
+const mapDispatchToProps = {
+  setLoginStatus,
 };
 
 export default connect(null, mapDispatchToProps)(User);

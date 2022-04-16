@@ -6,6 +6,7 @@ import Trending from "./Trending";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
+import { setNewDeck, setDeckIntrodule } from "../../store/action/deckAction";
 function New({ newsDeck, setNewDeck, setDeckIntrodule }) {
   const handleSetIntroduleChapter = () => {
     const chapterItems = {
@@ -143,12 +144,9 @@ const mapStateToProps = (state) => {
     newsDeck: state.deckReducer.newsDeck,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setNewDeck: (value) => dispatch({ type: "SET_NEWS_DECK", payload: value }),
-    setDeckIntrodule: (value) =>
-      dispatch({ type: "SET_INTRODULE_DECK", payload: value }),
-  };
+const mapDispatchToProps = {
+  setNewDeck,
+  setDeckIntrodule,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(New);

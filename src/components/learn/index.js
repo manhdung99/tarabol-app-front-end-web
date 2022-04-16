@@ -4,13 +4,8 @@ import Header from "../header";
 import Body from "./body";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-function Learn({
-  chapterDetail,
-  learnIndex,
-  userDecks,
-  setUserDeck,
-  deckDetail,
-}) {
+import { setUserDeck, setLearnIndex } from "../../store/action/deckAction";
+function Learn({ chapterDetail, userDecks, setUserDeck, deckDetail }) {
   console.log(chapterDetail.cards.length);
 
   const [processNumber, setProcessNumber] = useState(chapterDetail.progress);
@@ -66,19 +61,14 @@ function Learn({
 const mapStateToProps = (state) => {
   return {
     chapterDetail: state.deckReducer.chapterDetail,
-    learnIndex: state.deckReducer.learningIndex,
     userDecks: state.deckReducer.userDecks,
     deckDetail: state.deckReducer.deckDetail,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setLearnIndex: (value) =>
-      dispatch({ type: "SET_LEARNING_INDEX", payload: value }),
-    setUserDeck: (value) =>
-      dispatch({ type: "SET_USER_DECKS", payload: value }),
-  };
+const mapDispatchToProps = {
+  setLearnIndex,
+  setUserDeck,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Learn);

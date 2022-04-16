@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { setChapterDetail } from "../../store/action/deckAction";
+
 function Body({ chapters, setChapterDetail, deckDetail }) {
   const handleSetDetailChapter = (id) => {
     const chapterInitData = deckDetail.chapter.find(
@@ -61,11 +63,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setChapterDetail: (value) =>
-      dispatch({ type: "SET_DETAIL_CHAPTER", payload: value }),
-  };
+const mapDispatchToProps = {
+  setChapterDetail,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Body);

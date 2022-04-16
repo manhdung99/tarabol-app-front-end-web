@@ -2,7 +2,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { initData } from "../../initData/initData";
-
+import { setUserDeck } from "../../store/action/deckAction";
 function UserMenuBar({ setUserDeck, setSortSelected }) {
   const searchItems = [
     { name: "All", link: "/" },
@@ -132,11 +132,8 @@ const mapStateToProps = (state) => {
     userDecks: state.deckReducer.userDecks,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setUserDeck: (value) =>
-      dispatch({ type: "SET_USER_DECKS", payload: value }),
-  };
+const mapDispatchToProps = {
+  setUserDeck,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserMenuBar);
